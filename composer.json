@@ -1,0 +1,16 @@
+{
+  "name": "si/sws",
+  "authors": [
+    {
+      "name": "Grec Maxime",
+      "email": "maxime.grec@gmail.com"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Controller\\": "Controller/",
+      "Model\\": "Model/"
+    }
+  }
+}
