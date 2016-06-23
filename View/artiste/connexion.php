@@ -6,7 +6,6 @@
  * Time: 10:56
  */
 ?>
-
 <!doctype html>
 <html lang="fr">
 <head>
@@ -14,14 +13,13 @@
     <title>Document</title>
 </head>
 <body>
-<h1>USER - INSCRIPTION</h1>
-<form action="" method="POST">
+<h1>ARTISTE - CONNEXION</h1>
+<form action="index.php?a=connexionartiste" method="POST">
     <input type="text" name="email">
-    <input type="text" name="nom">
     <input type="password" name="password">
-    <input type="password" name="password2">
     <input type="submit">
 </form>
+<a href="index.php">Accueil</a>
 
 </body>
 </html>

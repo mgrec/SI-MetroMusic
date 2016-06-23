@@ -14,7 +14,7 @@
     <title>Document</title>
 </head>
 <body>
-<h1>USER - INSCRIPTION</h1>
+<h1>ARTISTE - INSCRIPTION</h1>
 <form action="" method="POST">
     <input type="text" name="email">
     <input type="text" name="nom">

@@ -14,13 +14,13 @@
     <title>Document</title>
 </head>
 <body>
-<h1>USER - INSCRIPTION</h1>
+<h1>AJOUTER UN EVENEMENTS</h1>
 <form action="" method="POST">
-    <input type="text" name="email">
     <input type="text" name="nom">
-    <input type="password" name="password">
-    <input type="password" name="password2">
+    <input type="text" name="description">
+    <input type="text" name="date">
     <input type="submit">
+    <?= $_SESSION['artiste_id']?>
 </form>
 
 </body>
