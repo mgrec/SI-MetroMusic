@@ -126,7 +126,7 @@
         <h2>Que font vos amis <hr></h2>
         <?php foreach ($follow as $itemfollow): ?>
         <div class="commentaire">
-            <img src="assets/img/ami1.png" alt="" class="photo_ami">
+            <div class="circular2 photo_profil" style="background: url(uploads/<?=$item->image?>) center;"></div>
             <p class="ago">Posté à <?=$itemfollow->date?></p>
             <h2><?=$itemfollow->nom ?></h2>
             <p class="place">à <span><?=$itemfollow->station ?></span> - <span class="color1">Ligne <img src="assets/img/l9.png" alt=""></span></p>
