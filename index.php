@@ -27,7 +27,6 @@ switch ($action) {
             $user->connexionAction();
         } else {
             $user->displayConnexion();
-
         }
         break;
     case 'connexionartiste':
@@ -36,11 +35,28 @@ switch ($action) {
         } else {
             $artiste->displayConnexion();
         }
-        break;
+        break; 
     case 'ajouter':
         $artiste->addProj();
         break;
-    default :
+    case 'like' :
+        $user->like();
+        break;
+    case 'inscription' :
         $front->displayDefault();
+        break;
+    case 'follow' :
+        $user->follow();
+        break;
+    case 'search' :
+        $user->search();
+        break;
+    case 'deconnexion' :
+        $front->deconnexion();
+        $front->home();
+        break;
+    default :
+        $front->home();
+        break;
 }
 ?>

@@ -1,0 +1,16 @@
+@font-face {
+    font-family: 'ProximaBold';
+    src: url(ProximaNova-Bold.otf);
+}
+@font-face {
+    font-family: 'ProximaExtraBold';
+    src: url(ProximaNova-Extrabold.otf);
+}
+@font-face {
+    font-family: 'ProximaLight';
+    src: url(ProximaNova-Light.otf);
+}
+@font-face {
+    font-family: 'Bilius';
+    src: url(Bilius.ttf);
+}

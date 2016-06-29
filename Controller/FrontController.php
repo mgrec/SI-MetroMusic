@@ -7,6 +7,7 @@
  */
 
 namespace Controller;
+
 use Controller\ArtisteController;
 use Controller\UserController;
 use Model\FrontRepository;
@@ -26,20 +27,29 @@ class FrontController
 
     public function displayDefault()
     {
-        $data = $this->repository->GetEvent();
         require 'View/display.php';
     }
     
     public function displayUser()
     {
         $this->user->insertAction();
-        require 'View/compte/displayUser.php';
     }
     
     public function displayArtiste()
     {
         $this->artiste->insertAction();
-        require 'View/artiste/displayArtiste.php';
     }
     
+    public function home()
+    {
+        $row = $this->repository->GetEvent();
+        require 'View/home.php';
+    }
+
+    public function deconnexion()
+    {
+        session_unset();
+        session_destroy();
+    }
+
 }

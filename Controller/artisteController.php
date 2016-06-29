@@ -10,6 +10,7 @@ namespace Controller;
 
 
 use Model\ArtisteRepository;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class ArtisteController
 {
@@ -20,24 +21,36 @@ class ArtisteController
         $this->repository = new artisteRepository($pdo);
     }
 
-    public function displayInscription()
-    {
-        include "View/artiste/inscription.php";
-    }
-    
     public function insertAction()
     {
         if (count($_POST) === 0) {
-            include "View/artiste/inscription.php";
+            include "View/display.php";
         } elseif ($_POST['password'] != $_POST['password2']) {
             echo 'Vos mot de passe ne correspondent pas';
-            include "View/artiste/inscription.php";
+            include "View/display.php";
         } else {
             $data = $_POST;
             $hash = hash('sha256', $data['password'] . $data['email']);
             $data['hash'] = $hash;
+            $img = Image::make($_FILES['image']["tmp_name"]);
+
+            $mime = $img->mime();
+            if ($mime == 'image/jpeg')
+                $extension = '.jpg';
+            elseif ($mime == 'image/png')
+                $extension = '.png';
+            elseif ($mime == 'image/gif')
+                $extension = '.gif';
+            else
+                $extension = '';
+
+            $filename  = time() . $extension;
+            $img->resize(200,200);
+            $img->save('uploads/'. $filename);
+            $data['image'] = $filename;
             $this->repository->insertUser($data);
-            include "View/artiste/connexion.php";
+            $row = $this->repository->GetEvent();
+            include "View/home.php";
         }
     }
 
@@ -48,48 +61,66 @@ class ArtisteController
             session_unset();
             $_SESSION['login'] = $email->email;
             $_SESSION['artiste_id'] = $email->id;
+            $infos = $this->repository->GetInfo($_SESSION['artiste_id']);
             $this->show();
         } else {
             session_unset();
             session_destroy();
-            $msg = 'ta race';
-            require "View/artiste/connexion.php";
+            $msg = 'Erreur de connexion : mauvaise combinaison email/mot de passe';
+            $data = $this->repository->GetEvent();
+            $row = $this->repository->GetEvent();
+            require "View/home.php";
         }
     }
 
     public function displayConnexion()
     {
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $this->connexionAction();
-            return;
+        $check = $this->checkAuth();
+        if ($check == true) {
+            $data = $this->repository->GetEvent();
+            $infos = $this->repository->GetInfo($_SESSION['artiste_id']);
+            require 'View/artiste/profile_artiste.php';
+        } else {
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                $this->connexionAction();
+                return;
+            }
+            $row = $this->repository->GetEvent();
+            require "View/home.php";
         }
-        require "View/artiste/connexion.php";
     }
 
     public function show()
     {
+        $data = $this->repository->GetEvent();
+        $infos = $this->repository->GetInfo($_SESSION['artiste_id']);
         require "View/artiste/profile_artiste.php";
     }
-    
-    public function addProj(){
-            if (count($_POST) === 0) {
-                require "View/artiste/ajouter.php";
-            } else {
-                $data = $_POST;
-                $data['id_artiste'] = $_SESSION['artiste_id'];
-                $this->repository->insertProj($data);
-                require "View/artiste/profile_artiste.php";
-            }
-    }
 
+
+    public function addProj()
+    {
+        if (count($_POST) === 0) {
+            require "View/artiste/ajouter.php";
+        } else {
+            $data = $_POST;
+            $data['id_artiste'] = $_SESSION['artiste_id'];
+            $this->repository->insertProj($data);
+            $this->show();
+        }
+    }
+    
     /**
      * Check if user is connect
      *
      * @return bool
      */
-    private function checkAuth()
+    private
+    function checkAuth()
     {
-        if ( !isset($_SESSION['artiste_id'])) return false;
+        if (!isset($_SESSION['artiste_id'])) {
+            return false;
+        }
         return true;
     }
 }

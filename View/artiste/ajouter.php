@@ -19,6 +19,7 @@
     <input type="text" name="nom">
     <input type="text" name="description">
     <input type="text" name="date">
+    <input type="select" name="station">
     <input type="submit">
     <?= $_SESSION['artiste_id']?>
 </form>

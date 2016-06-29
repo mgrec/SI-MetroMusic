@@ -29,7 +29,7 @@
         <a href="" class="modif_infos">Modifier mes infos</a>
         <img src="assets/img/arrow_left.png" alt="" class="arrow_left arrowl">
         <div class="circular profil2" style="background: url(uploads/<?=$item1->image?>) center;"></div>
-            <h2><?= $item1->nom?></h2>
+        <h2><?= $item1->nom?></h2>
         <?php endforeach; ?>
         <div class="menu">
             <ul>
@@ -78,12 +78,10 @@
     <img src="assets/img/logo.png" alt="" class="logo">
     <!--RECHERCHE-->
     <div class="recherche">
-        <form action="index.php?a=search" method="post">
-        <input name='search' type="text">
+        <input type="text">
         <div class="loupe">
-            <input type="submit" value="<img src="assets/img/loupe.png" alt="">">
+            <a href=""><img src="assets/img/loupe.png" alt=""></a>
         </div>
-        </form>
     </div>
     <!--FIN RECHERCHE-->
 
@@ -125,18 +123,18 @@
     <div class="amis">
         <h2>Que font vos amis <hr></h2>
         <?php foreach ($follow as $itemfollow): ?>
-        <div class="commentaire">
-            <img src="assets/img/ami1.png" alt="" class="photo_ami">
-            <p class="ago">Posté à <?=$itemfollow->date?></p>
-            <h2><?=$itemfollow->nom ?></h2>
-            <p class="place">à <span><?=$itemfollow->station ?></span> - <span class="color1">Ligne <img src="assets/img/l9.png" alt=""></span></p>
-            <p class="avis"><?=$itemfollow->description?></p>
-            <div class="interaction">
-                <img src="assets/img/train_bleu.png" alt="" class="train_bleu">
-                <img src="assets/img/coeur2.png" alt="" class="coeur@@2"><span class="nb_likes"><?= $itemfollow->like_count ?></span>
-                <p class="commenter"><a href="">Commenter</a> - (6) commentaires</p>
+            <div class="commentaire">
+                <img src="assets/img/ami1.png" alt="" class="photo_ami">
+                <p class="ago">Posté à <?=$itemfollow->date?></p>
+                <h2><?=$itemfollow->nom ?></h2>
+                <p class="place">à <span><?=$itemfollow->station ?></span> - <span class="color1">Ligne <img src="assets/img/l9.png" alt=""></span></p>
+                <p class="avis"><?=$itemfollow->description?></p>
+                <div class="interaction">
+                    <img src="assets/img/train_bleu.png" alt="" class="train_bleu">
+                    <img src="assets/img/coeur2.png" alt="" class="coeur@@2"><span class="nb_likes"><?= $itemfollow->like_count ?></span>
+                    <p class="commenter"><a href="">Commenter</a> - (6) commentaires</p>
+                </div>
             </div>
-        </div>
         <?php endforeach; ?>
     </div>
     <!--FIN AMIS-->

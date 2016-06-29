@@ -20,7 +20,7 @@ class FrontRepository
 
     public function GetEvent()
     {
-        $sql = 'SELECT * FROM `representation`';
+        $sql = 'SELECT representation.nom as repnom, description, station, user.nom, user.image FROM `representation` INNER JOIN user ON user.id = id_artiste';
         $stmt = $this->PDO->prepare($sql);
         $stmt->execute();
         $row = $stmt->fetchAll(\PDO::FETCH_OBJ);
