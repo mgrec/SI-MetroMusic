@@ -17,6 +17,16 @@
     width: 100%;
 }
 
+.circular2{
+    width: 65px;
+    height: 65px;
+    border-radius: 150px;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
 .left {
     float: left;
     width: 50%;
@@ -454,10 +464,11 @@ h3{
         top: 40%;
         left: 30%;
     }
-    .artist img{
+    .artist .img-front{
         display: block;
         margin: 0 auto;
         margin-bottom: 20px;
+        display: inline-block;
     }
     .artist-content {
         display: flex;
@@ -512,10 +523,11 @@ h3{
         top: 40%;
         left: 30%;
     }
-    .artist img{
+    .artist .img-front{
         display: block;
         margin: 0 auto;
         margin-bottom: 20px;
+        display: inline-block;
     }
     .artist-content {
         display: flex;

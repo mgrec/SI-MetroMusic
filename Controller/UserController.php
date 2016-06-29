@@ -64,6 +64,7 @@ class UserController
             $infos = $this->repository->GetInfo($_SESSION['user_id']);
             $data = $this->repository->GetEvent();
             $follow = $this->repository->GetEventFollow($_SESSION['user_id']);
+            $infos2 = $this->repository->GetInfosFollow($_SESSION['user_id']);
             require 'View/compte/profile_user.php';
         } else {
             $email = $this->repository->getUser($_POST['email']);
@@ -73,6 +74,7 @@ class UserController
                 $_SESSION['user_id'] = $email->id;
                 $infos = $this->repository->GetInfo($_SESSION['user_id']);
                 $follow = $this->repository->GetEventFollow($_SESSION['user_id']);
+                $infos2 = $this->repository->GetInfosFollow($_SESSION['user_id']);
                 $this->show();
             } else {
                 session_unset();
@@ -90,6 +92,7 @@ class UserController
         if ($check == true) {
             $data = $this->repository->GetEvent();
             $infos = $this->repository->GetInfo($_SESSION['user_id']);
+            $infos2 = $this->repository->GetInfosFollow($_SESSION['user_id']);
             $follow = $this->repository->GetEventFollow($_SESSION['user_id']);
             require 'View/compte/profile_user.php';
         } else {
@@ -122,6 +125,7 @@ class UserController
     {
         $data = $this->repository->GetEvent();
         $infos = $this->repository->GetInfo($_SESSION['user_id']);
+        $infos2 = $this->repository->GetInfosFollow($_SESSION['user_id']);
         $follow = $this->repository->GetEventFollow($_SESSION['user_id']);
         require "View/compte/profile_user.php";
     }
@@ -131,6 +135,7 @@ class UserController
         $data = $_POST['search'];
         $data = $this->repository->search($data);
         $infos = $this->repository->GetInfo($_SESSION['user_id']);
+        $infos2 = $this->repository->GetInfosFollow($_SESSION['user_id']);
         $follow = $this->repository->GetEventFollow($_SESSION['user_id']);
         require 'View/compte/search.php';
     }

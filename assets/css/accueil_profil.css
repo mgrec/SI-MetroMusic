@@ -57,7 +57,7 @@ a {
     height: 100%;
     background: linear-gradient( #FFEC00, #26E2BB);
     position: fixed;
-    z-index: 90;
+    z-index: 999;
 }
 
 .profil_close img {
@@ -65,29 +65,6 @@ a {
     padding-left: 20px;
 }
 
-.circular {
-    width: 150px;
-    height: 150px;
-    border-radius: 150px;
-    -webkit-border-radius: 150px;
-    -moz-border-radius: 150px;
-    background-repeat: no-repeat;
-    box-shadow: 0 0 8px rgba(0, 0, 0, .8);
-    -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
-    -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
-}
-
-.circular2 {
-    width: 70px;
-    height: 70px;
-    border-radius: 150px;
-    -webkit-border-radius: 150px;
-    -moz-border-radius: 150px;
-    background-repeat: no-repeat;
-    box-shadow: 0 0 8px rgba(0, 0, 0, .8);
-    -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
-    -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
-}
 
 /**/
 
@@ -97,8 +74,8 @@ a {
     height: 100vh;
     background: linear-gradient( #FFEC00, #26E2BB);
     font-family: "proxima_nova";
-    z-index:90;
     display: none;
+    z-index: 999;
 }
 
 .profil_open .modif_infos {
@@ -189,21 +166,22 @@ a {
     left: 35%;
 }
 
-.recherche input {
+.search {
     width: 342px;
-    height: 35px;
+    height: 36px;
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
     border: 1px solid #E4E4E4;
     border-right: none;
     outline: none;
     padding-left: 5px;
-    box-sizing: border-box;
+    vertical-align: top;
 }
 
 .loupe {
+
     width: 49px;
-    height: 35px;
+    height: 36px;
     background-color: #43E6BC;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
@@ -215,8 +193,9 @@ a {
 
 .loupe img {
     position: relative;
-    top: 8px;
-    left: 15px;
+    top: 3px;
+    left: 1px;
+    width: 18px;
 }
 
 
@@ -233,10 +212,28 @@ a {
     margin-top: 74px;
 }
 
+.circular2{
+    width: 65px;
+    height: 65px;
+    border-radius: 150px;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+    background-repeat: no-repeat;
+}
+
+.circular{
+    width: 150px;
+    height: 150px;
+    border-radius: 150px;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+    background-repeat: no-repeat;
+}
+
 .partager .photo_profil {
     position: relative;
     left: 20px;
-    top: 28px;
+    top: 20px;
     display: inline-block;
 }
 
@@ -275,6 +272,7 @@ a {
     display: block;
     padding-left: 5px;
     outline: none;
+    resize: none;
 }
 
 .partager .btn_partager {
@@ -296,10 +294,12 @@ a {
 .partager .photo {
     margin-left: 122px;
     margin-top: 5px;
+    width: 20px;
 }
 
 .partager .lieu {
     margin-left: 27px;
+    width: 18px;
 }
 
 .partager a {
@@ -316,27 +316,30 @@ a {
 /**/
 
 .actu_recente {
-    width: 640px;
-    height: 474px;
+    width: 100%;
+    padding-bottom: 10px;
     border-radius: 8px;
     border: 1px solid #ECECEC;
     background-color: #FCFCFC;
     margin-top: 25px;
     font-family: "proxima_nova";
+    position: relative;
 }
 
 .actu_recente .photo_profil {
-    margin-top: 9px;
+    margin-top: 20px;
     margin-left: 30px;
 }
 
 .actu_recente .infos {
     display: inline-block;
-    margin-left: 27px;
-    position: relative;
-    top: -10px;
+    position: absolute;
+    top: 45px;
+    left: 120px;
 }
-
+.infosplus{
+    margin-left: 128px;
+}
 .infos h3 {
     font-size: 16px;
     font-family: "proxima_nova_bold";
@@ -348,50 +351,57 @@ a {
     margin-top: 5px;
 }
 
-.infos .lieu {
+.infosplus .lieu {
     font-size: 12px;
     margin-top: 3px;
     display: inline-block;
 }
 
-.infos .lieu .l5 {
+.l5 {
     color: #F87327;
 }
 
-.infos .lieu img {
+.infosplus .lieu img {
     position: relative;
     top: 3px;
 }
 
-.infos .horaire {
+.horaire {
     display: inline-block;
     font-size: 12px;
     margin-left: 12px;
 }
 
-.infos span {
+.infos  span {
     font-family: "proxima_nova_bold";
     color: #444444;
 }
-
-.infos input {
-    width: 67px;
+.infosplus span{
+    font-family: "proxima_nova_bold";
+    color: #444444;
+}
+.suivre{
+    float: right;
+    width: 75px;
     height: 21px;
     background-color: transparent;
     border: 1px solid #43E6BC;
     border-radius: 5px;
     color: #43E6BC;
     font-size: 12px;
-    position: relative;
-    top: -35px;
     outline: none;
     cursor: pointer;
+    padding: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 15px;
+    margin-right: 40px;
 }
 
 .actu_recente .description {
     font-size: 12px;
-    text-align: center;
     margin-top: 22px;
+    margin-left: 30px;
 }
 
 .actu_recente .photo2 {
@@ -404,55 +414,68 @@ a {
     font-family: "proxima_nova";
     font-size: 10px;
     color: #6E6E6E;
-    margin-top: 9px;
+    padding-left: 30px;
+    width: 100%;
+    margin-top: 5px;
 }
 
-.legende .coeur {
-    margin-left: 35px;
+.coeur {
+    width: 17px;
+    vertical-align: middle;
 }
-
-.legende .liker {
-    display: inline;
+.photo2{
+    display: inline-block;
+}
+.commenter {
+    display: inline-block;
+}
+.aime{
+    display: inline-block;
     margin-left: 5px;
-    position: relative;
-    top: -2px;
 }
-
-.legende .commenter {
-    display: inline;
-    margin-left: 48px;
-    position: relative;
-    top: -2px;
-}
-
 .legende span {
     font-family: "proxima_nova_bold";
+    display: inline-block;
 }
-
-.legende .train {
-    margin-left: 73px;
+.train {
+    width: 13px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 20px;
 }
-
-.legende .trouver {
-    display: inline;
-    margin-left: 7px;
-    position: relative;
-    top: -2px;
+.find{
+    display: inline-block;
 }
-
 
 /*FIN ACTUALITES*/
 
 
 /*AMIS*/
 
-.amis {
+/*.amis-fix{
     width: 451px;
     height: auto;
     position: absolute;
     right: 50px;
     top: 74px;
+    position: fixed;
 }
+*/
+
+.amis {
+    width: 490px;
+    position: absolute;
+    height: 100vh;
+    right: 5px;
+    top: 74px;
+    overflow-y:scroll;
+    position: fixed;
+}
+
+.amis::-webkit-scrollbar{
+    opacity:0;
+}
+
 
 .amis .commentaire {
     width: 451px;
@@ -505,24 +528,19 @@ a {
     font-family: "proxima_nova_bold";
     color: #444444;
 }
-
-.commentaire .color1 {
+.color1 {
     color: #D3CA00;
 }
-
-.commentaire .color2 {
+.color2 {
     color: #F88BAB;
 }
-
-.commentaire .color3 {
+.color3 {
     color: #F87327;
 }
-
-.commentaire .color4 {
+.color4 {
     color: #FAC500;
 }
-
-.commentaire .avis {
+.avis {
     font-family: "proxima_nova";
     color: #444444;
     font-size: 12px;
@@ -538,9 +556,9 @@ a {
     position: relative;
     left: 125px;
     top: -35px;
+    vertical-align: middle;
 }
-
-.interaction .nb_likes {
+.nb_likes {
     font-family: "proxima_nova";
     font-size: 10px;
     color: #444444;
@@ -548,24 +566,194 @@ a {
     position: relative;
     top: -2px;
 }
-
-.interaction .commenter {
+.commenter {
     display: inline;
     font-family: "proxima_nova";
     font-size: 10px;
     color: #444444;
     margin-left: 18px;
-    position: relative;
-    top: -2px;
 }
 
-.interaction .train_bleu {
+.train_bleu {
     margin-left: 10px;
+    margin-top: 15px;
+    width: 13px;
 }
 
-.interaction .coeur2 {
+.coeur2 {
     margin-left: 13px;
+    width: 15px;
+
 }
 
 
 /*FIN AMIS*/
+footer{
+    display: none;
+}
+
+/*RESPONSIVE*/
+
+@media screen and (max-width: 768px) {
+    .all{
+        width: 640px;
+        margin: 0 auto;
+    }
+    .actualites {
+        margin-left: inherit;
+        width: 99%;
+    }
+    .actu_recente{
+        border-radius: inherit;
+        margin-bottom: 20px;
+    }
+    .photo2{
+        width: 90%;
+    }
+    .profil_close{
+        z-index: 1000;
+        position: fixed;
+        background: inherit;
+        height: 45px;
+
+    }
+    .amis{
+        display: none;
+    }
+    .logo {
+        display: none;
+    }
+    .barre{
+        width: 100%;
+        height: 45px;
+        box-shadow: 1px 1px 10px #aaa;
+        background-color: white;
+        position: fixed;
+        left: 0;
+        z-index: 999;
+    }
+    .recherche .search {
+        width: 237px;
+        height: 29px;
+    }
+    .recherche .loupe {
+        width: 52px;
+        height: 29px;
+    }
+    .recherche{
+        left: inherit;
+        float: right;
+        position: relative;
+        top: 8px;
+        margin-right: 20px;
+    }
+    .partager{
+        display: none;
+    }
+    h2 hr{
+        display: inherit;
+    }
+    .moment{
+        width: 400px;
+        margin: 0 auto;
+        margin-top: 0px;
+        margin-bottom: 30px;
+    }
+    hr{
+        width: 200px;
+    }
+    footer{
+        display: inherit;
+        background: linear-gradient( 90deg ,#FFEC00, #26E2BB);
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+        z-index: 999;
+        height: 40px;
+    }
+    .acti{
+        width: 33.3%;
+        display: inline-block;
+        height: 100%;
+        text-align: center;
+        padding-top: 10px;
+
+    }
+    .acti:active{
+        background-color: rgba(0,0,0,0.2);
+    }
+    .actu{
+        width: 33.3%;
+        display: inline-block;
+        height: 100%;
+        text-align: center;
+        padding-top: 10px;
+
+    }
+    .actu:active{
+        background-color: rgba(0,0,0,0.2);
+    }
+    .part{
+        width: 33.4%;
+        display: inline-block;
+        height: 100%;
+        text-align: center;
+        padding-top: 10px;
+    }
+    .part:active{
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+    .menu{
+        font-family: "proxima_nova";
+        font-size: 15px;
+        font-weight: 600;
+        color: white;
+    }
+    .aime{
+        display: none;
+    }
+    .find{
+        display: none;
+    }
+    .legende{
+        padding-left: 3%;
+    }
+    .train{
+        float: left;
+        margin-right: 10px;
+    }
+}
+@media screen and (max-width: 635px) {
+    .all{
+        width: 100%;
+        margin: 0 auto;
+    }
+    .recherche .search {
+        width: 190px;
+    }
+    .actualites {
+        width: inherit;
+        margin-left: inherit;
+        width: 100%;
+    }
+    .actu_recente{
+        border-radius: inherit;
+        width: 100%;
+    }
+    .suivre{
+        margin-right: 15px;
+    }
+    .infosplus{
+        margin-top: 20px;
+        margin-left: 50px;
+    }
+    .moment{
+        font-size: 14px;
+        width: 320px;
+    }
+    hr{
+        width: 100px;
+    }
+    .legende{
+    }
+}

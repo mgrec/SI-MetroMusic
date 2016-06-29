@@ -55,12 +55,13 @@ class ArtisteRepository
   SELECT count(*)
   FROM `like_par`
   WHERE id_repr = r.id
-)as mescouilles,
+)as countlike,
 r.id as repid,
 r.nom as repnom,
 description,
 station,
 user.nom,
+user.image,
 id_artiste
 FROM
   `representation` r
@@ -74,6 +75,16 @@ FROM
     public function GetInfo($data)
     {
         $sql = 'SELECT * FROM user WHERE id = :id';
+        $stmt = $this->PDO->prepare($sql);
+        $stmt->bindParam(':id', $data, \PDO::PARAM_INT);
+        $stmt->execute();
+        $row = $stmt->fetchAll(\PDO::FETCH_OBJ);
+        return $row;
+    }
+
+    public function GetInfosFollow($data)
+    {
+        $sql="SELECT COUNT(id) as numb FROM suivis_par WHERE suivis_par.id_artiste = :id";
         $stmt = $this->PDO->prepare($sql);
         $stmt->bindParam(':id', $data, \PDO::PARAM_INT);
         $stmt->execute();
