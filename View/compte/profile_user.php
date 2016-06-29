@@ -107,7 +107,7 @@
 
                 <div class="legende">
                     <img src="assets/img/coeur.png" alt="" class="coeur">
-                    <p class="liker"><a href="index.php?a=like&id=<?=$item->repid?>">Aimer la publication</a href="index.php?a=like&id=<?=$item->repid?>"> - mentions (<?=$item->mescouilles?>)</p>
+                    <p class="liker"><a href="index.php?a=like&id=<?=$item->repid?>">Aimer la publication</a href="index.php?a=like&id=<?=$item->repid?>"> - mentions (<?=$item->countlike?>)</p>
                     <p class="commenter"><a href=""><span>Commenter</span></a> - (6) commentaires</p>
                     <img src="assets/img/train_bleu.png" alt="" class="train">
                     <p class="trouver"><a href="">Trouver un itinéraire</a></p>
@@ -126,7 +126,7 @@
         <h2>Que font vos amis <hr></h2>
         <?php foreach ($follow as $itemfollow): ?>
         <div class="commentaire">
-            <img src="assets/img/ami1.png" alt="" class="photo_ami">
+            <div class="circular2 photo_profil" style="background: url(uploads/<?=$item->image?>) center;"></div>
             <p class="ago">Posté à <?=$itemfollow->date?></p>
             <h2><?=$itemfollow->nom ?></h2>
             <p class="place">à <span><?=$itemfollow->station ?></span> - <span class="color1">Ligne <img src="assets/img/l9.png" alt=""></span></p>
@@ -157,5 +157,4 @@
     });
 </script>
 </body>
-
 </html>

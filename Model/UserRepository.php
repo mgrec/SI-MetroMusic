@@ -63,7 +63,7 @@ class UserRepository
   SELECT count(*)
   FROM `like_par`
   WHERE id_repr = r.id
-)as mescouilles,
+)as countlike,
 r.id as repid,
 r.nom as repnom,
 description,
@@ -101,7 +101,7 @@ FROM
     
     public function GetEventFollow($data)
     {
-        $sql="SELECT * FROM representation INNER JOIN suivis_par ON suivis_par.id_artiste = representation.id_artiste && suivis_par.etat = 1 WHERE suivis_par.id_user = :id_user";
+        $sql="SELECT * FROM representation INNER JOIN suivis_par ON suivis_par.id_artiste = representation.id_artiste && suivis_par.etat = 1 INNER JOIN user ON user.id = suivis_par.id_artiste WHERE suivis_par.id_user = 34";
         $stmt = $this->PDO->prepare($sql);
         $stmt->bindParam(':id_user', $data, \PDO::PARAM_INT);
         $stmt->execute();
@@ -116,7 +116,7 @@ FROM
   SELECT count(*)
   FROM `like_par`
   WHERE id_repr = r.id
-)as mescouilles,
+)as countlike,
 r.id as repid,
 r.nom as repnom,
 description,
