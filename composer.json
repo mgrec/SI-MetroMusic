@@ -6,7 +6,9 @@
       "email": "maxime.grec@gmail.com"
     }
   ],
-  "require": {},
+  "require": {
+    "intervention/image": "^2.3"
+  },
   "autoload": {
     "psr-4": {
       "Controller\\": "Controller/",
