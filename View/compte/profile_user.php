@@ -81,7 +81,7 @@
         <form action="index.php?a=search" method="post">
         <input name='search' type="text">
         <div class="loupe">
-            <input type="submit" value="<img src="assets/img/loupe.png" alt="">">
+            <input type="submit" value="<img src="assets/img/loupe.png" alt="">
         </div>
         </form>
     </div>
