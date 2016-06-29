@@ -107,7 +107,7 @@
 
                 <div class="legende">
                     <img src="assets/img/coeur.png" alt="" class="coeur">
-                    <p class="liker"><a href="index.php?a=like&id=<?=$item->repid?>">Aimer la publication</a href="index.php?a=like&id=<?=$item->repid?>"> - mentions (<?=$item->mescouilles?>)</p>
+                    <p class="liker"><a href="index.php?a=like&id=<?=$item->repid?>">Aimer la publication</a href="index.php?a=like&id=<?=$item->repid?>"> - mentions (<?=$item->countlike?>)</p>
                     <p class="commenter"><a href=""><span>Commenter</span></a> - (6) commentaires</p>
                     <img src="assets/img/train_bleu.png" alt="" class="train">
                     <p class="trouver"><a href="">Trouver un itinéraire</a></p>
@@ -157,5 +157,4 @@
     });
 </script>
 </body>
-
 </html>

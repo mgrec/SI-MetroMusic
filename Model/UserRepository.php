@@ -63,7 +63,7 @@ class UserRepository
   SELECT count(*)
   FROM `like_par`
   WHERE id_repr = r.id
-)as mescouilles,
+)as countlike,
 r.id as repid,
 r.nom as repnom,
 description,
@@ -116,7 +116,7 @@ FROM
   SELECT count(*)
   FROM `like_par`
   WHERE id_repr = r.id
-)as mescouilles,
+)as countlike,
 r.id as repid,
 r.nom as repnom,
 description,
