@@ -62,4 +62,5 @@ switch ($action) {
         $front->home();
         break;
 }
+
 ?>

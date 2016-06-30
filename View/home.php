@@ -48,9 +48,9 @@
         <div class="artist">
             <div class="circular2 img-front" style="background: url(uploads/<?=$item->image?>) center;"></div>
             <div class="artist-content">
-                <h3><?= $item->repnom ?></h3>
-                <p>par <span class="artist-name"><?=$item->nom?></span></p>
-                <p>à <span class="artist-location"><?=$item->station?></span> -  aujourd'hui, de <span class="artist-schedule">16h à 17h</span></p>
+                <h3><?= htmlentities($item->repnom) ?></h3>
+                <p>par <span class="artist-name"><?=htmlentities($item->nom)?></span></p>
+                <p>à <span class="artist-location"><?=htmlentities($item->station)?></span> -  aujourd'hui, de <span class="artist-schedule"><?=htmlentities($item->plage_de) ?> à <?=htmlentities($item->plage_a) ?></span></p>
             </div>
         </div>
     <?php endforeach; ?>

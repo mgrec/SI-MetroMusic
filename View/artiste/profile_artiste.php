@@ -78,40 +78,40 @@
                     <option>Trocadero</option>
                 </select> /
                 <select class="ajout_date" name="plage_de" id="" placeholder="Ajouter une photo/vidéo">
-                    <option>De 8h</option>
-                    <option>De 9h</option>
-                    <option>De 10h</option>
-                    <option>De 11h</option>
-                    <option>De 12h</option>
-                    <option>De 13h</option>
-                    <option>De 14h</option>
-                    <option>De 15h</option>
-                    <option>De 16h</option>
-                    <option>De 17h</option>
-                    <option>De 18h</option>
-                    <option>De 19h</option>
-                    <option>De 20h</option>
-                    <option>De 21h</option>
-                    <option>De 22h</option>
-                    <option>De 23h</option>
+                    <option>8h</option>
+                    <option>9h</option>
+                    <option>10h</option>
+                    <option>11h</option>
+                    <option>12h</option>
+                    <option>13h</option>
+                    <option>14h</option>
+                    <option>15h</option>
+                    <option>16h</option>
+                    <option>17h</option>
+                    <option>18h</option>
+                    <option>19h</option>
+                    <option>20h</option>
+                    <option>21h</option>
+                    <option>22h</option>
+                    <option>23h</option>
                 </select>
                 <select class="ajout_date" name="plage_a" id="" placeholder="Ajouter une photo/vidéo">
-                    <option>A 8h</option>
-                    <option>A 9h</option>
-                    <option>A 10h</option>
-                    <option>A 11h</option>
-                    <option>A 12h</option>
-                    <option>A 13h</option>
-                    <option>A 14h</option>
-                    <option>A 15h</option>
-                    <option>A 16h</option>
-                    <option>A 17h</option>
-                    <option>A 18h</option>
-                    <option>A 19h</option>
-                    <option>A 20h</option>
-                    <option>A 21h</option>
-                    <option>A 22h</option>
-                    <option>A 23h</option>
+                    <option>8h</option>
+                    <option>9h</option>
+                    <option>10h</option>
+                    <option>11h</option>
+                    <option>12h</option>
+                    <option>13h</option>
+                    <option>14h</option>
+                    <option>15h</option>
+                    <option>16h</option>
+                    <option>17h</option>
+                    <option>18h</option>
+                    <option>19h</option>
+                    <option>20h</option>
+                    <option>21h</option>
+                    <option>22h</option>
+                    <option>23h</option>
                 </select>
                 <input type="submit" value="Partager" class="btn_partager">
                 </div>

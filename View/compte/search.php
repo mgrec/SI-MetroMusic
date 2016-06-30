@@ -15,49 +15,29 @@
 
 <div class="profil">
     <div class="profil_close">
-        <a class="arrowr" href=""><img src="assets/img/arrow_right.png" alt=""></a>
+        <a href=""><img class="arrowr" src="assets/img/arrow_right.png" alt=""></a>
     </div>
-
+    <?php foreach ($infos as $item1): ?>
     <div class="profil_open">
         <a href="" class="modif_infos">Modifier mes infos</a>
-        <img src="assets/img/arrow_left.png" alt="" class="arrowl arrow_left">
-        <img src="assets/img/photo_profil2.png" alt="" class="profil2">
-        <h2>Julien Lavigne</h2>
+        <img src="assets/img/arrow_left.png" alt="" class="arrow_left arrowl">
+        <div class="circular profil2" style="background: url(uploads/<?= $item1->image ?>) no-repeat center; width: 80px; height: 80px;"></div>
+        <h2><?= $item1->nom ?></h2>
+        <?php endforeach; ?>
         <div class="menu">
             <ul>
-                <li><a href="">Artiste</a></li>
+                <li><a href="">Suber</a></li>
                 <hr>
-                <li><a href="">Abonnés</a></li>
-                <span>123</span>
                 <li><a href="">Abonnements</a></li>
-                <span>196</span>
+                <?php foreach ($infos2 as $item2): ?>
+                    <span class="nb"><?= htmlentities($item2->numb) ?></span>
+                <?php endforeach; ?>
                 <li><a href="">Plan métro</a></li>
                 <li><a href="">Lignes de métro</a></li>
                 <li><a href="">Trouver un itinéraire</a></li>
-                <li><a href="">Déconnexion</a></li>
+                <li><a href="index.php?a=deconnexion">Déconnexion</a></li>
             </ul>
         </div>
-
-        <nav>
-            <ul>
-                <li>
-                    <a href="">Droits d'auteur</a>
-                </li>
-                <li>
-                    <a href="">Confidentialité</a>
-                </li>
-                <br>
-                <li>
-                    <a href="">À propos</a>
-                </li>
-                <li>
-                    <a href="">Conditions d'utilisation</a>
-                </li>
-                <li>
-                    <a href="">Contact</a>
-                </li>
-            </ul>
-        </nav>
 
     </div>
 </div>
@@ -83,22 +63,22 @@
                 <h2 class="moment">En ce moment sur nos lignes de métro parisiennes <hr class="trait"></h2>
                 <?php foreach ($data as $item): ?>
                     <div class="actu_recente">
-                        <a class="suivre"href="index.php?a=follow&id=<?=$item->id_artiste?>">Suivre</a>
+                        <a class="suivre"href="index.php?a=follow&id=<?=htmlentities($item->id_artiste)?>">Suivre</a>
                         <div class="circular2 photo_profil" style="background: url(uploads/<?=$item->image?>) center;"></div>
                         <div class="infos">
-                            <h3><?=$item->repnom?></h3>
-                            <p class="auteur">Par <span><?=$item->nom?></span></p>                </div>
-                        <div class="infosplus"><p class="lieu">à <span><?=$item->station?>,</span></p>
+                            <h3><?=htmlentities($item->repnom)?></h3>
+                            <p class="auteur">Par <span><?=htmlentities($item->nom)?></span></p>                </div>
+                        <div class="infosplus"><p class="lieu">à <span><?=htmlentities($item->station)?>,</span></p>
                             <p class="horaire">Horaires : <span>de 8h à 10h</span></p></div>
 
 
-                        <p class="description"><?=$item->description?></p>
+                        <p class="description"><?=htmlentities($item->description)?></p>
 
-                        <img src="uploads/<?=$item->repimg?>" alt="" class="photo2">
+                        <img src="uploads/<?=htmlentities($item->repimg)?>" alt="" class="photo2">
 
                         <div class="legende">
                             <img src="assets/img/coeur.png" alt="" class="coeur">
-                            <div class="aime"><a href="index.php?a=like&id=<?=$item->repid?>">Aimer la publication</a> - </div> <span>(<?=$item->countlike?>)</span><div class="aime"> mentions</div>
+                            <div class="aime"><a href="index.php?a=like&id=<?=htmlentities($item->repid)?>">Aimer la publication</a> - </div> <span>(<?=htmlentities($item->countlike)?>)</span><div class="aime"> mentions</div>
 
                             <p class="commenter"><a href=""><span>Commenter</span></a> - (6) commentaires</p>
                             <img src="assets/img/train_bleu.png" alt="" class="train">
@@ -125,9 +105,9 @@
                     <p class="ago">Il y a 5 minutes</p>
                     <div class="circular2 photo_ami" style="background: url(uploads/<?=$item2->image?>) center;"></div>
                     <div class="infos_ami">
-                        <h2><?=$item2->nom?></h2>
-                        <p class="place">à <span><?=$item2->station?></span></p></div>
-                    <p class="avis"><?=$item2->description?></p>
+                        <h2><?=htmlentities($item2->nom)?></h2>
+                        <p class="place">à <span><?=htmlentities($item2->station)?></span></p></div>
+                    <p class="avis"><?=htmlentities($item2->description)?></p>
                     <div class="interaction">
                         <img src="assets/img/train_bleu.png" alt="" class="train_bleu">
                         <div class="onsaitpassionlemet"><img src="assets/img/coeur2.png" alt="" class="coeur2"><span class="nb_likes">(67)</span></div>

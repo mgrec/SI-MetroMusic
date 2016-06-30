@@ -31,7 +31,7 @@
                 <hr>
                 <li><a href="">Abonnements</a></li>
                 <?php foreach ($infos2 as $item2): ?>
-                    <span class="nb"><?= $item2->numb ?></span>
+                    <span class="nb"><?= htmlentities($item2->numb) ?></span>
                 <?php endforeach; ?>
                 <li><a href="">Plan métro</a></li>
                 <li><a href="">Lignes de métro</a></li>
@@ -65,8 +65,8 @@
             <div class="actu_recente">
             <?php foreach ($ligne as $itemligne): ?>
 
-                <p style="padding: 10px;"><img src="assets/img/ligne/ligne<?=$itemligne->ligne?>.png" alt=""> - Suivez toutes les infos de cette ligne sur Twitter :
-                    <a style="color: #80BFFF;" target="_blank" href="https://twitter.com/Ligne<?=$itemligne->ligne?>_RATP"> Infos</a></p>
+                <p style="padding: 10px;"><img src="assets/img/ligne/ligne<?=htmlentities($itemligne->ligne)?>.png" alt=""> - Suivez toutes les infos de cette ligne sur Twitter :
+                    <a style="color: #80BFFF;" target="_blank" href="https://twitter.com/Ligne<?=htmlentities($itemligne->ligne)?>_RATP"> Infos</a></p>
 
             <?php endforeach; ?>
 
@@ -93,9 +93,9 @@
                     <div class="circular2 photo_ami"
                          style="background: url(uploads/<?= $item2->image ?>) center;"></div>
                     <div class="infos_ami">
-                        <h2><?= $item2->nom ?></h2>
-                        <p class="place">à <span><?= $item2->station ?></span></p></div>
-                    <p class="avis"><?= $item2->description ?></p>
+                        <h2><?= htmlentities($item2->nom) ?></h2>
+                        <p class="place">à <span><?= htmlentities($item2->station) ?></span></p></div>
+                    <p class="avis"><?= htmlentities($item2->description) ?></p>
                     <div class="interaction">
                         <img src="assets/img/train_bleu.png" alt="" class="train_bleu">
                         <div class="onsaitpassionlemet"><img src="assets/img/coeur2.png" alt="" class="coeur2"><span
