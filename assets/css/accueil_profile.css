@@ -188,14 +188,23 @@ a {
     top: 15px;
     left: 35%;
 }
-
-.recherche input {
+.recherche-search{
     width: 342px;
     height: 35px;
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
     border: 1px solid #E4E4E4;
-    border-right: none;
+    padding: 5px;
+    box-sizing: border-box;
+    -webkit-appearance: textfield;
+    -webkit-box-sizing: content-box;
+}
+
+.recherche-ipt {
+    width: 342px;
+    height: 35px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border: 1px solid #E4E4E4;
+    border-left: none;
     outline: none;
     padding-left: 5px;
     box-sizing: border-box;
@@ -374,7 +383,7 @@ a {
     color: #444444;
 }
 
-.infos input {
+.info-submit {
     width: 67px;
     height: 21px;
     background-color: transparent;

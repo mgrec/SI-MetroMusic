@@ -78,10 +78,10 @@
     <img src="assets/img/logo.png" alt="" class="logo">
     <!--RECHERCHE-->
     <div class="recherche">
-        <input type="text">
-        <div class="loupe">
-            <a href=""><img src="assets/img/loupe.png" alt=""></a>
-        </div>
+        <form action="index.php?a=search" method="post">
+            <input name='search' class="recherche-search" type="search">
+            <input class="recherche-ipt" type="submit" value="Rechercher">
+        </form>
     </div>
     <!--FIN RECHERCHE-->
 

@@ -79,10 +79,10 @@
     <img src="assets/img/logo.png" alt="" class="logo">
     <!--RECHERCHE-->
     <div class="recherche">
-        <input type="text">
-        <div class="loupe">
-            <a href=""><img src="assets/img/loupe.png" alt=""></a>
-        </div>
+        <form action="index.php?a=search" method="post">
+            <input name='search' class="recherche-search" type="search">
+            <input class="recherche-ipt" type="submit" value="Rechercher">
+        </form>
     </div>
     <!--FIN RECHERCHE-->
 
@@ -108,7 +108,7 @@
                 <p class="auteur">Par <span><?= $item->nom ?></span></p>
                 <p class="lieu">à <span><?= $item->station ?></span> - <span class="l5">Ligne <img src="assets/img/l5.png" alt=""></span></p>
                 <p class="horaire">actuellement, <span>de 8h à 10h</span></p>
-                <input type="submit" value="Suivre">
+                <input class="info-submit" type="submit" value="Suivre">
             </div>
             <p class="description"><?= $item->description ?></p>
 
