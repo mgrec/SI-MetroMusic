@@ -55,6 +55,9 @@ switch ($action) {
         $front->deconnexion();
         $front->home();
         break;
+    case 'itineraire':
+        $user->itineraireDisplay();
+        break;
     default :
         $front->home();
         break;

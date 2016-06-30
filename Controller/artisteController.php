@@ -45,7 +45,7 @@ class ArtisteController
                 $extension = '';
 
             $filename  = time() . $extension;
-            $img->resize(200,200);
+            $img->resize(80,80);
             $img->save('uploads/'. $filename);
             $data['image'] = $filename;
             $this->repository->insertUser($data);
@@ -62,6 +62,8 @@ class ArtisteController
             $_SESSION['login'] = $email->email;
             $_SESSION['artiste_id'] = $email->id;
             $infos = $this->repository->GetInfo($_SESSION['artiste_id']);
+            $infos2 = $this->repository->GetInfosFollow($_SESSION['artiste_id']);
+            $who = $this->repository->whoFollowMe($_SESSION['artiste_id']);
             $this->show();
         } else {
             session_unset();
@@ -79,6 +81,8 @@ class ArtisteController
         if ($check == true) {
             $data = $this->repository->GetEvent();
             $infos = $this->repository->GetInfo($_SESSION['artiste_id']);
+            $infos2 = $this->repository->GetInfosFollow($_SESSION['artiste_id']);
+            $who = $this->repository->whoFollowMe($_SESSION['artiste_id']);
             require 'View/artiste/profile_artiste.php';
         } else {
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -94,6 +98,8 @@ class ArtisteController
     {
         $data = $this->repository->GetEvent();
         $infos = $this->repository->GetInfo($_SESSION['artiste_id']);
+        $infos2 = $this->repository->GetInfosFollow($_SESSION['artiste_id']);
+        $who = $this->repository->whoFollowMe($_SESSION['artiste_id']);
         require "View/artiste/profile_artiste.php";
     }
 
@@ -101,10 +107,26 @@ class ArtisteController
     public function addProj()
     {
         if (count($_POST) === 0) {
-            require "View/artiste/ajouter.php";
+            $this->show();
         } else {
             $data = $_POST;
             $data['id_artiste'] = $_SESSION['artiste_id'];
+            $img = Image::make($_FILES['image']["tmp_name"]);
+
+            $mime = $img->mime();
+            if ($mime == 'image/jpeg')
+                $extension = '.jpg';
+            elseif ($mime == 'image/png')
+                $extension = '.png';
+            elseif ($mime == 'image/gif')
+                $extension = '.gif';
+            else
+                $extension = '';
+
+            $filename  = time() . $extension;
+            $img->resize(584,328);
+            $img->save('uploads/'. $filename);
+            $data['image'] = $filename;
             $this->repository->insertProj($data);
             $this->show();
         }

@@ -14,7 +14,27 @@
 /*FIN FONTS*/
 
 .container {
-    width: 100%;git merge --no-ff #issue4
+    width: 100%;
+}
+
+.circular2{
+    width: 65px;
+    height: 65px;
+    border-radius: 150px;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
+.circular{
+    width: 150px;
+    height: 150px;
+    border-radius: 150px;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+    background-repeat: no-repeat;
+    display: inline-block;
 }
 
 .left {
@@ -114,6 +134,25 @@ form button {
     outline: none;
     cursor: pointer;
 }
+input[type=file] {
+    opacity: 0;
+    display: none;
+}
+.pictureLabel {
+    font-family: "proxima_nova";
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 348px;
+    padding: 10px;
+    border-radius: 8px;
+    background: white;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin: 25px auto;
+}
 
 #form_left {
     padding-top: 150px;
@@ -137,13 +176,26 @@ form button {
     margin: 0 auto;
     display: block;
     width: 348px;
-    height: 29px;
+    height: 35px;
     border-radius: 8px;
     border: none;
-    padding: 3px;
+    padding: 10px;
     margin-top: 25px;
     outline: none;
+    box-sizing: border-box;
+    letter-spacing: 1px;
 }
+.inscrit-submit{
+    height: 45px;
+    width: 200px;
+    border: none;
+    border-radius: 8px;
+    border:1px solid #222;
+    background: transparent;
+    font-size: 16px;
+    font-family:'proxima_nova';
+}
+
 
 
 /*QUAND LEFT EST OUVERT*/
@@ -302,7 +354,7 @@ nav .welcome {
     font-family: 'ProximaLight';
     overflow-y: scroll;
 }
-h2{
+.right-part h2{
     text-align: center;
     margin: 0 auto;
     font-size: 20px;

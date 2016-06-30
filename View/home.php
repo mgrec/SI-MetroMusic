@@ -46,11 +46,11 @@
     <H2>Découvrez les artistes qui font une <br> répresentation en ce moment dans le métro</H2>
     <?php foreach ($row as $item): ?>
         <div class="artist">
-            <img src="img/photo-test.jpg" alt="photo artiste">
+            <div class="circular2 img-front" style="background: url(uploads/<?=$item->image?>) center;"></div>
             <div class="artist-content">
                 <h3><?= $item->repnom ?></h3>
-                <p>par <span class="artist-name"><?= $item->nom ?></span></p>
-                <p>à <span class="artist-location"><?= $item->station ?></span> -  aujourd'hui, de <span class="artist-schedule">16h à 17h</span></p>
+                <p>par <span class="artist-name"><?=$item->nom?></span></p>
+                <p>à <span class="artist-location"><?=$item->station?></span> -  aujourd'hui, de <span class="artist-schedule">16h à 17h</span></p>
             </div>
         </div>
     <?php endforeach; ?>

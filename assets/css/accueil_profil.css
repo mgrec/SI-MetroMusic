@@ -1,0 +1,924 @@
+/*FONTS*/
+
+@font-face {
+    font-family: 'bilius';
+    src: url('../fonts/Bilius.ttf');
+}
+
+@font-face {
+    font-family: 'proxima_nova';
+    src: url('../fonts/proxima_nova/ProximaNova-Light.otf');
+}
+
+@font-face {
+    font-family: 'proxima_nova_bold';
+    src: url('../fonts/proxima_nova/ProximaNova-Bold.otf');
+}
+
+
+/*FIN FONTS*/
+.content {
+    width: 100%;
+    height: 100vh;
+}
+
+.time{
+    font-family: "proxima_nova";
+    color: #444444;
+    font-size: 12px;
+    width: 350px;
+    padding-top: 10px;
+}
+
+.logo {
+    position: absolute;
+    top: 12px;
+    right: 23px;
+    width: 65px;
+}
+
+h2 {
+    font-family: 'proxima_nova';
+    font-size: 18px;
+}
+
+.trait {
+    width: 229px;
+    border: 1px solid #E4E4E4;
+    display: inline-block;
+    vertical-align: middle;
+}
+a {
+    color: #6E6E6E;
+    text-decoration: none;
+}
+
+
+/*PROFIL*/
+
+.profil_close {
+    width: 47px;
+    height: 100%;
+    background: linear-gradient( #FFEC00, #26E2BB);
+    position: fixed;
+    z-index: 999;
+}
+
+.profil_close img {
+    padding-top: 15px;
+    padding-left: 20px;
+}
+
+
+/**/
+
+.profil_open {
+    position: fixed;
+    width: 289px;
+    height: 100vh;
+    background: linear-gradient( #FFEC00, #26E2BB);
+    font-family: "proxima_nova";
+    z-index: 1000;
+    display: none;
+}
+
+.profil_open .modif_infos {
+    font-size: 12px;
+    float: left;
+    margin-top: 12px;
+    margin-left: 13px;
+}
+
+.profil_open .arrow_left {
+    float: right;
+    margin-top: 12px;
+    margin-right: 15px;
+}
+
+.profil_open .profil2 {
+    clear: both;
+    margin: 0 auto;
+    display: block;
+    margin-top: 42px;
+}
+
+.profil_open h2 {
+    text-align: center;
+    font-family: "proxima_nova_bold";
+    font-size: 20px;
+    margin-top: 27px;
+}
+
+.profil_open hr {
+    width: 175px;
+    border: 1px solid #90E434;
+}
+
+.profil_open .menu ul {
+    text-align: center;
+    font-family: "proxima_nova_bold";
+}
+
+.profil_open .menu li {
+    margin-top: 25px;
+}
+
+.profil_open .menu ul a {
+    color: black;
+}
+
+.profil_open .menu li:first-child {
+    margin-top: 6px;
+    margin-bottom: 29px;
+}
+
+.profil_open .menu .nb {
+    font-family: "proxima_nova";
+}
+
+.profil_open .menu li:last-child {
+    margin-top: 86px;
+}
+
+.profil_open nav .nb{
+    font-size: 12px;
+}
+
+.profil_open nav ul {
+    margin-top: 30px;
+}
+
+.profil_open nav li {
+    display: inline;
+    margin-left: 23px;
+}
+
+.profil_open nav li:first-child {
+    margin-left: 57px;
+}
+
+
+/*FIN PROFIL*/
+
+
+/*RECHERCHE*/
+
+.recherche {
+    position: absolute;
+    top: 15px;
+    left: 35%;
+}
+
+.search {
+    width: 342px;
+    height: 36px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border: 1px solid #E4E4E4;
+    border-right: none;
+    outline: none;
+    padding-left: 5px;
+    vertical-align: top;
+}
+
+.loupe {
+
+    width: 49px;
+    height: 36px;
+    background-color: #43E6BC;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-left: none;
+    display: inline-block;
+    border: 1px solid #43E6BC;
+    margin-left: -4px;
+}
+
+.loupe img {
+    position: relative;
+    top: 3px;
+    left: 1px;
+    width: 18px;
+}
+
+
+/*FIN RECHERCHE*/
+
+
+/*ACTUALITES*/
+
+.actualites {
+    display: inline-block;
+    width: 640px;
+    height: auto;
+    margin-left: 90px;
+    margin-top: 74px;
+}
+
+.partager .photo_profil {
+    position: relative;
+    left: 20px;
+    top: 20px;
+    display: inline-block;
+}
+
+.partager {
+    width: 100%;
+    height: 165px;
+    margin-top: 21px;
+    border-radius: 8px;
+    border: 1px solid #ECECEC;
+    margin-bottom: 17px;
+}
+
+.partager .titre {
+    width: 491px;
+    height: 20px;
+    border-radius: 5px;
+    border: 1px solid #F0F0F0;
+    margin-left: 24px;
+    background-color: #FCFCFC;
+    position: relative;
+    top: -20px;
+    left: 20px;
+    padding-left: 5px;
+    outline: none;
+}
+
+.partager .description {
+    width: 491px;
+    height: 51px;
+    border-radius: 5px;
+    border: 1px solid #F0F0F0;
+    background-color: #FCFCFC;
+    position: relative;
+    top: -10px;
+    left: 113px;
+    display: block;
+    padding-left: 5px;
+    outline: none;
+    resize: none;
+}
+
+.partager .btn_partager {
+    width: 115px;
+    height: 30px;
+    border-radius: 8px;
+    background-color: #43E6BC;
+    color: white;
+    border: none;
+    font-family: "proxima_nova";
+    font-size: 16px;
+    margin-left: 49px;
+    position: relative;
+    top: -5px;
+    outline: none;
+    cursor: pointer;
+}
+
+.partager .photo {
+    margin-left: 100px;
+    margin-top: 4px;
+    width: 20px;
+}
+
+.partager .lieu {
+    margin-left: 10px;
+    width: 18px;
+}
+
+.partager a {
+    margin-left: 8px;
+    font-family: 'proxima_nova';
+    font-size: 10px;
+    color: #6E6E6E;
+    display: inline-block;
+    top: -5px;
+}
+
+input[type=file] {
+    opacity: 0;
+    display: none;
+}
+.pictureLabel2 {
+    background: transparent;
+    padding: 4px;
+    line-height: 1;
+    border: 0;
+    font-size: 12px;
+    margin-left: 10px;
+    border-radius: 0;
+    height: 30px;
+    margin-bottom: 4px;
+    -webkit-appearance: none;
+    vertical-align: middle;
+    font-family: 'proxima_nova';
+}
+.ajout_lieu{
+    font-family: 'proxima_nova';
+    font-size: 12px;
+    background: transparent;
+    line-height: 1;
+    border: 0;
+    border-radius: 0;
+    height: 30px;
+    margin-bottom: 5px;
+    -webkit-appearance: none;
+    vertical-align: middle;
+}
+.ajout_date{
+    font-family: 'proxima_nova';
+    font-size: 12px;
+    background: transparent;
+    line-height: 1;
+    border: 0;
+    border-radius: 0;
+    height: 30px;
+    margin-bottom: 5px;
+    -webkit-appearance: none;
+    vertical-align: middle;
+}
+/**/
+.recente{
+    display: block;
+    padding-bottom: 100px;
+}
+.actu_recente {
+    width: 100%;
+    padding-bottom: 10px;
+    border-radius: 8px;
+    border: 1px solid #ECECEC;
+    background-color: #FCFCFC;
+    margin-top: 25px;
+    font-family: "proxima_nova";
+    position: relative;
+}
+
+.actu_recente .photo_profil {
+    margin-top: 20px;
+    margin-left: 30px;
+}
+
+.actu_recente .infos {
+    display: inline-block;
+    position: absolute;
+    top: 45px;
+    left: 120px;
+}
+.infosplus{
+    margin-left: 128px;
+}
+.infos h3 {
+    font-size: 16px;
+    font-family: "proxima_nova_bold";
+    color: #444444;
+}
+
+.infos .auteur {
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.infosplus .lieu {
+    font-size: 12px;
+    margin-top: 3px;
+    display: inline-block;
+}
+
+.l5 {
+    color: #F87327;
+}
+
+.infosplus .lieu img {
+    position: relative;
+    top: 3px;
+}
+
+.horaire {
+    display: inline-block;
+    font-size: 12px;
+    margin-left: 12px;
+}
+
+.infos  span {
+    font-family: "proxima_nova_bold";
+    color: #444444;
+}
+.infosplus span{
+    font-family: "proxima_nova_bold";
+    color: #444444;
+}
+.suivre{
+    float: right;
+    width: 75px;
+    height: 21px;
+    background-color: transparent;
+    border: 1px solid #43E6BC;
+    border-radius: 5px;
+    color: #43E6BC;
+    font-size: 12px;
+    outline: none;
+    cursor: pointer;
+    padding: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 15px;
+    margin-right: 40px;
+}
+
+.actu_recente .description {
+    font-size: 12px;
+    margin-top: 22px;
+    margin-left: 30px;
+    padding-bottom: 10px;
+}
+
+.actu_recente .photo2 {
+    margin: 0 auto;
+    display: block;
+}
+
+.legende {
+    font-family: "proxima_nova";
+    font-size: 10px;
+    color: #6E6E6E;
+    padding-left: 30px;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.coeur {
+    width: 17px;
+    vertical-align: middle;
+}
+.photo2{
+    display: inline-block;
+    -moz-border-radius:7px;
+    -webkit-border-radius:7px;
+    border-radius:7px;
+}
+.commenter {
+    display: inline-block;
+}
+.aime{
+    display: inline-block;
+    margin-left: 5px;
+}
+.legende span {
+    font-family: "proxima_nova_bold";
+    display: inline-block;
+}
+.train {
+    width: 13px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 20px;
+}
+.find{
+    display: inline-block;
+}
+
+/*FIN ACTUALITES*/
+
+
+/*AMIS*/
+
+.amis {
+    width: 490px;
+    position: absolute;
+    height: 100vh;
+    right: 5px;
+    top: 74px;
+    overflow-y:scroll;
+    position: fixed;
+    padding-bottom: 95px;
+}
+
+.amis::-webkit-scrollbar{
+    opacity:0;
+}
+
+
+.commentaire {
+    width: 451px;
+    padding-bottom: 10px;
+    background-color: #FCFCFC;
+    border: 1px solid #ECECEC;
+    margin-top: 30px;
+    border-radius: 8px;
+}
+
+.commentaire .photo_ami {
+    margin-top: 13px;
+    margin-left: 15px;
+}
+
+.photo_ami{
+    display: inline;
+    margin: 0 auto;
+    height: 100%;
+    width: auto;
+}
+
+.commentaire .ago {
+    float: right;
+    font-family: "proxima_nova";
+    font-size: 11px;
+    color: #444444;
+    padding-top: 7px;
+    padding-right: 8px;
+}
+
+.commentaire h2 {
+    font-family: "proxima_nova_bold";
+    font-size: 16px;
+    color: #444444;
+}
+.commentaire .place {
+    color: #565656;
+    font-family: "proxima_nova";
+    font-size: 12px;
+
+}
+.circular2{
+    width: 65px;
+    height: 65px;
+    border-radius: 150px;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
+.circular{
+    width: 80px;
+    height: 80px;
+    border-radius: 150px;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
+.infos_ami{
+    width: 200px;
+    vertical-align: top;
+    margin-top: 25px;
+    margin-left: 26px;
+    display: inline-block;
+}
+.commentaire span {
+    font-family: "proxima_nova_bold";
+    color: #444444;
+}
+.color1 {
+    color: #D3CA00;
+}
+.color2 {
+    color: #F88BAB;
+}
+.color3 {
+    color: #F87327;
+}
+.color4 {
+    color: #FAC500;
+}
+.avis {
+    font-family: "proxima_nova";
+    color: #444444;
+    font-size: 12px;
+    width: 350px;
+    margin-left: 80px;
+}
+
+.time{
+    font-family: "proxima_nova";
+    color: #444444;
+    font-size: 12px;
+    width: 350px;
+    padding-top: 10px;
+}
+
+.onsaitpassionlemet{
+    display: none;
+}
+
+/**/
+
+.interaction {
+    margin-top: 10px;
+}
+.nb_likes {
+    font-family: "proxima_nova";
+    font-size: 10px;
+    color: #444444;
+    margin-left: 4px;
+}
+.commenter {
+    font-family: "proxima_nova";
+    font-size: 10px;
+    color: #444444;
+    margin-left: 15px;
+}
+
+.train_bleu {
+    width: 13px;
+    vertical-align: middle;
+    margin-left: 50px;
+}
+
+.coeur2 {
+    margin-left: 13px;
+    width: 15px;
+
+}
+
+.ajout_com{
+    padding-top: 20px;
+    width: 100%;
+    margin: 0 auto;
+    display: none;
+}
+.autre_com{
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-bottom: 2px solid #ECECEC;
+}
+.description3{
+    width: 60%;
+    margin-top: 10px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #F0F0F0;
+    background-color: #FCFCFC;
+    outline: none;
+    resize: none;
+}
+.ajout_desc{
+    vertical-align: middle;
+    width: 75px;
+    height: 21px;
+    background-color: transparent;
+    border: 1px solid #43E6BC;
+    border-radius: 5px;
+    color: #43E6BC;
+    font-size: 12px;
+    outline: none;
+    cursor: pointer;
+    padding: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: 50px;
+}
+.ajout_desc:hover{
+    background-color: #43E6BC;
+    color: white;
+}
+
+
+/*FIN AMIS*/
+footer{
+    display: none;
+}
+
+/*RESPONSIVE*/
+@media screen and (min-width: 769px) {
+    .recente{
+        display: block;
+        padding-bottom: 100px;
+    }
+    .amis{
+        display: block;
+    }
+}
+@media screen and (max-width: 768px) {
+    .profil_open{
+        width: 100%;
+    }
+    .all{
+        width: 640px;
+        margin: 0 auto;
+    }
+    .actualites {
+        margin-left: inherit;
+        width: 99%;
+    }
+    .actu_recente{
+        border-radius: inherit;
+        margin-bottom: 20px;
+    }
+    .photo2{
+        width: 90%;
+    }
+    .profil_close{
+        z-index: 1000;
+        position: fixed;
+        background: inherit;
+        height: 45px;
+
+    }
+    .amis{
+        display: none;
+        position: static;
+        margin: 0 auto;
+    }
+    .logo {
+        display: none;
+    }
+    .barre{
+        width: 100%;
+        height: 45px;
+        box-shadow: 1px 1px 10px #aaa;
+        background-color: white;
+        position: fixed;
+        left: 0;
+        z-index: 999;
+    }
+    .recherche .search {
+        width: 237px;
+        height: 29px;
+    }
+    .recherche .loupe {
+        width: 52px;
+        height: 29px;
+    }
+    .recherche{
+        left: inherit;
+        float: right;
+        position: relative;
+        top: 8px;
+        margin-right: 20px;
+    }
+    .partager{
+        display: none;
+    }
+    .trait{
+        width: 200px;
+        margin: 0 auto;
+    }
+    footer{
+        display: inherit;
+        background: linear-gradient( 90deg ,#FFEC00, #26E2BB);
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+        z-index: 999;
+        height: 40px;
+    }
+    .acti{
+        width: 33.3%;
+        display: inline-block;
+        height: 100%;
+        text-align: center;
+        padding-top: 10px;
+    }
+    .actu{
+        width: 33.3%;
+        display: inline-block;
+        height: 100%;
+        text-align: center;
+        padding-top: 10px;
+    }
+    .actu2{
+        background-color: rgba(0,0,0,0.2);
+    }
+    .part{
+        width: 33.4%;
+        display: inline-block;
+        height: 100%;
+        text-align: center;
+        padding-top: 10px;
+    }
+    .menu{
+        font-family: "proxima_nova";
+        font-size: 15px;
+        font-weight: 600;
+    }
+    .aime{
+        display: none;
+    }
+    .find{
+        display: none;
+    }
+    .legende{
+        padding-left: 3%;
+    }
+    .train{
+        float: left;
+        margin-right: 10px;
+    }
+
+
+    .partager{
+        width: 100%;
+        height: 350px;
+    }
+    .part2{
+        width: 60%;
+        margin: 0 auto;
+    }
+    .partager .photo_profil{
+        position: inherit;
+        display: block;
+        margin: 0 auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .partager .titre{
+        position: static;
+        width: 70%;
+        display: inherit;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+    .partager .description{
+        position: static;
+        width: 90%;
+        display: inherit;
+        margin: 0 auto;
+    }
+    .pictureLabel2{
+        display: block;
+        margin-top: 10px;
+        width: 110px;
+    }
+    .partager .btn_partager{
+        margin-left: inherit;
+        display: block;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+    .partager .photo {
+        margin-left: inherit;
+        margin: 0 auto;
+    }
+}
+@media screen and (max-width: 635px) {
+    .all{
+        width: 100%;
+        margin: 0 auto;
+    }
+    .recherche .search {
+        width: 190px;
+    }
+    .actualites {
+        width: inherit;
+        margin-left: inherit;
+        width: 100%;
+    }
+    .actu_recente{
+        border-radius: inherit;
+        width: 100%;
+    }
+    .suivre{
+        margin-right: 15px;
+    }
+    .infosplus{
+        margin-top: 20px;
+        margin-left: 50px;
+    }
+    .moment{
+        font-size: 14px;
+        width: 350px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .moment2{
+        font-size: 14px;
+        width: 200px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .trait{
+        text-align: center;
+    }
+    hr{
+        width: 100px;
+    }
+    .legende{
+    }
+}
+@media screen and (max-width: 485px) {
+    .amis{
+        width: 100%;
+    }
+    .commentaire{
+        width: 100%;
+        border-radius: inherit ;
+    }
+    .avis{
+        margin-left: 25px;
+        margin-top: 5px;
+    }
+    .infos_ami{
+        margin-left: 10px;
+    }
+    .interaction{
+        margin-left: 20px;
+    }
+    .commentaire .photo_ami{
+    }
+}

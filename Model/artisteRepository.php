@@ -38,13 +38,17 @@ class ArtisteRepository
     }
 
     public function insertProj(array $data)
-    {   $sql = "INSERT INTO `representation` (`nom`, `description`, `id_artiste`, `date`) VALUES (:nom, :description, :id_artiste, :date)";
+    {   $sql = "INSERT INTO `representation` (`nom`, `description`, `id_artiste`, `date`, `image`, `plage_de`, `plage_a`, `station`) VALUES (:nom, :description, :id_artiste, :date, :image, :plage_de, :plage_a, :station)";
         $time2 = date('H:i:s', gmdate('U'));
         $stmt = $this->PDO->prepare($sql);
         $stmt->bindParam(':nom', $data['nom'], \PDO::PARAM_STR);
         $stmt->bindParam(':description', $data['description'], \PDO::PARAM_STR);
         $stmt->bindParam(':id_artiste', $data['id_artiste'], \PDO::PARAM_STR);
         $stmt->bindParam(':date', $time2, \PDO::PARAM_STR);
+        $stmt->bindParam(':image', $data['image'], \PDO::PARAM_STR);
+        $stmt->bindParam(':plage_de', $data['plage_de'], \PDO::PARAM_STR);
+        $stmt->bindParam(':plage_a', $data['plage_a'], \PDO::PARAM_STR);
+        $stmt->bindParam(':station', $data['station'], \PDO::PARAM_STR);
         $stmt->execute();
     }
 
@@ -55,12 +59,16 @@ class ArtisteRepository
   SELECT count(*)
   FROM `like_par`
   WHERE id_repr = r.id
-)as mescouilles,
+)as countlike,
 r.id as repid,
 r.nom as repnom,
+r.image as repimg,
 description,
 station,
+plage_de,
+plage_a,
 user.nom,
+user.image,
 id_artiste
 FROM
   `representation` r
@@ -74,6 +82,26 @@ FROM
     public function GetInfo($data)
     {
         $sql = 'SELECT * FROM user WHERE id = :id';
+        $stmt = $this->PDO->prepare($sql);
+        $stmt->bindParam(':id', $data, \PDO::PARAM_INT);
+        $stmt->execute();
+        $row = $stmt->fetchAll(\PDO::FETCH_OBJ);
+        return $row;
+    }
+
+    public function GetInfosFollow($data)
+    {
+        $sql="SELECT COUNT(id) as numb FROM suivis_par WHERE suivis_par.id_artiste = :id";
+        $stmt = $this->PDO->prepare($sql);
+        $stmt->bindParam(':id', $data, \PDO::PARAM_INT);
+        $stmt->execute();
+        $row = $stmt->fetchAll(\PDO::FETCH_OBJ);
+        return $row;
+    }
+
+    public function whoFollowMe($data)
+    {
+        $sql='SELECT suivis_par.id_user, suivis_par.date, user.nom, user.image FROM suivis_par INNER JOIN user ON user.id = suivis_par.id_user WHERE id_artiste = :id';
         $stmt = $this->PDO->prepare($sql);
         $stmt->bindParam(':id', $data, \PDO::PARAM_INT);
         $stmt->execute();
