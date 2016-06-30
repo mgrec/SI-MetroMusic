@@ -42,6 +42,7 @@
     </div>
 </div>
 <!--FIN PROFIL-->
+<<<<<<< HEAD
 <div class="all">
     <div class="content">
         <img src="assets/img/logo.png" alt="" class="logo">
@@ -54,6 +55,46 @@
                         <img src="assets/img/loupe.png" alt="">
                     </button>
                 </form>
+=======
+
+<div class="content">
+
+
+
+    <img src="assets/img/logo.png" alt="" class="logo">
+    <!--RECHERCHE-->
+    <div class="recherche">
+        <form action="index.php?a=search" method="post">
+            <input name='search' class="recherche-search" type="search">
+            <input class="recherche-ipt" type="submit" value="Rechercher">
+        </form>
+    </div>
+    <!--FIN RECHERCHE-->
+
+    <!--ACTUALITES-->
+    <div class="actualites">
+
+        <form action="index.php?a=ajouter" method="post" class="partager">
+            <img src="assets/img/photo_profil.png" alt="" class="photo_profil">
+            <input type="text" name="nom" class="titre" placeholder="Ajouter un titre à votre publication">
+            <input type="text" name="description" class="commentaire" placeholder="Ajouter une description à votre publication">
+            <img src="assets/img/photo.png" alt="" class="photo">
+            <a href="">Ajouter une photo/vidéo</a><img src="assets/img/lieu.png" alt="" class="lieu">
+            <a href="">Ajouter un lieu et une date</a>
+            <input type="submit" value="Partager" class="btn_partager">
+        </form>
+
+        <h2>En ce moment sur nos lignes de métro parisiennes <hr></h2>
+        <?php foreach ($data as $item): ?>
+        <div class="actu_recente">
+            <img src="assets/img/photo1.png" alt="" class="photo_profil">
+            <div class="infos">
+                <h3><?= $item->repnom ?></h3>
+                <p class="auteur">Par <span><?= $item->nom ?></span></p>
+                <p class="lieu">à <span><?= $item->station ?></span> - <span class="l5">Ligne <img src="assets/img/l5.png" alt=""></span></p>
+                <p class="horaire">actuellement, <span>de 8h à 10h</span></p>
+                <input class="info-submit" type="submit" value="Suivre">
+>>>>>>> master
             </div>
         </div>
         <!--FIN RECHERCHE-->

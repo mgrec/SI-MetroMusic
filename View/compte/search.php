@@ -94,7 +94,35 @@
 
                         <p class="description"><?=$item->description?></p>
 
+<<<<<<< HEAD
                         <img src="uploads/<?=$item->repimg?>" alt="" class="photo2">
+=======
+    <img src="assets/img/logo.png" alt="" class="logo">
+    <!--RECHERCHE-->
+    <div class="recherche">
+        <form action="index.php?a=search" method="post">
+            <input name='search' class="recherche-search" type="search">
+            <input class="recherche-ipt" type="submit" value="Rechercher">
+        </form>
+    </div>
+    <!--FIN RECHERCHE-->
+
+    <!--ACTUALITES-->
+    <div class="actualites">
+
+        <h2>En ce moment sur nos lignes de métro parisiennes <hr></h2>
+        <?php foreach ($data as $item): ?>
+            <div class="actu_recente">
+                <div class="circular2 photo_profil" style="background: url(uploads/<?=$item->image?>) center;"></div>
+                <div class="infos">
+                    <h3><?= $item->repnom ?></h3>
+                    <p class="auteur">Par <span><?= $item->nom ?></span></p>
+                    <p class="lieu">à <span><?= $item->station ?></span> - <span class="l5">Ligne <img src="assets/img/l5.png" alt=""></span></p>
+                    <p class="horaire">actuellement, <span>de 8h à 10h</span></p>
+                    <a href="index.php?a=follow&id=<?= $item->id_artiste ?>">SUIVRE</a>
+                </div>
+                <p class="description"><?= $item->description ?></p>
+>>>>>>> master
 
                         <div class="legende">
                             <img src="assets/img/coeur.png" alt="" class="coeur">

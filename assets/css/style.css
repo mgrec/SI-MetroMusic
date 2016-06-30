@@ -184,6 +184,19 @@ input[type=file] {
     outline: none;
     box-sizing: border-box;
     letter-spacing: 1px;
+<<<<<<< HEAD
+}
+.inscrit-submit{
+    height: 45px;
+    width: 200px;
+    border: none;
+    border-radius: 8px;
+    border:1px solid #222;
+    background: transparent;
+    font-size: 16px;
+    font-family:'proxima_nova';
+=======
+>>>>>>> master
 }
 .inscrit-submit{
     height: 45px;
@@ -195,6 +208,7 @@ input[type=file] {
     font-size: 16px;
     font-family:'proxima_nova';
 }
+
 
 
 
