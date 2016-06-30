@@ -9,8 +9,7 @@ require_once 'init.php';
 session_start();
 $user = new \Controller\UserController($pdo);
 $artiste = new \Controller\ArtisteController($pdo);
-$front = new \Controller\frontController($pdo);
-//SELECT ligne FROM est_sur WHERE id_station = (SELECT station FROM groupe WHERE id = 1);
+$front = new \Controller\FrontController($pdo);
 $action = '';
 if (isset($_GET['a'])) {
     $action = $_GET['a'];
@@ -54,6 +53,9 @@ switch ($action) {
     case 'deconnexion' :
         $front->deconnexion();
         $front->home();
+        break;
+    case 'itineraire':
+        $user->itineraireDisplay();
         break;
     default :
         $front->home();

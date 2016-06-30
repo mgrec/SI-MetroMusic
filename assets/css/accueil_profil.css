@@ -17,10 +17,17 @@
 
 
 /*FIN FONTS*/
-
 .content {
     width: 100%;
     height: 100vh;
+}
+
+.time{
+    font-family: "proxima_nova";
+    color: #444444;
+    font-size: 12px;
+    width: 350px;
+    padding-top: 10px;
 }
 
 .logo {
@@ -35,15 +42,12 @@ h2 {
     font-size: 18px;
 }
 
-h2 hr {
+.trait {
     width: 229px;
-    display: inline-block;
     border: 1px solid #E4E4E4;
-    position: relative;
-    top: 5px;
-    left: 12px;
+    display: inline-block;
+    vertical-align: middle;
 }
-
 a {
     color: #6E6E6E;
     text-decoration: none;
@@ -74,8 +78,8 @@ a {
     height: 100vh;
     background: linear-gradient( #FFEC00, #26E2BB);
     font-family: "proxima_nova";
+    z-index: 1000;
     display: none;
-    z-index: 999;
 }
 
 .profil_open .modif_infos {
@@ -89,7 +93,6 @@ a {
     float: right;
     margin-top: 12px;
     margin-right: 15px;
-    cursor: pointer;
 }
 
 .profil_open .profil2 {
@@ -129,7 +132,7 @@ a {
     margin-bottom: 29px;
 }
 
-.profil_open .menu span {
+.profil_open .menu .nb {
     font-family: "proxima_nova";
 }
 
@@ -137,7 +140,7 @@ a {
     margin-top: 86px;
 }
 
-.profil_open nav {
+.profil_open nav .nb{
     font-size: 12px;
 }
 
@@ -208,26 +211,8 @@ a {
     display: inline-block;
     width: 640px;
     height: auto;
-    margin-left: 96px;
+    margin-left: 90px;
     margin-top: 74px;
-}
-
-.circular2{
-    width: 65px;
-    height: 65px;
-    border-radius: 150px;
-    -webkit-border-radius: 150px;
-    -moz-border-radius: 150px;
-    background-repeat: no-repeat;
-}
-
-.circular{
-    width: 150px;
-    height: 150px;
-    border-radius: 150px;
-    -webkit-border-radius: 150px;
-    -moz-border-radius: 150px;
-    background-repeat: no-repeat;
 }
 
 .partager .photo_profil {
@@ -260,7 +245,7 @@ a {
     outline: none;
 }
 
-.partager .commentaire {
+.partager .description {
     width: 491px;
     height: 51px;
     border-radius: 5px;
@@ -292,13 +277,13 @@ a {
 }
 
 .partager .photo {
-    margin-left: 122px;
-    margin-top: 5px;
+    margin-left: 100px;
+    margin-top: 4px;
     width: 20px;
 }
 
 .partager .lieu {
-    margin-left: 27px;
+    margin-left: 10px;
     width: 18px;
 }
 
@@ -308,13 +293,56 @@ a {
     font-size: 10px;
     color: #6E6E6E;
     display: inline-block;
-    position: relative;
     top: -5px;
 }
 
-
+input[type=file] {
+    opacity: 0;
+    display: none;
+}
+.pictureLabel2 {
+    background: transparent;
+    padding: 4px;
+    line-height: 1;
+    border: 0;
+    font-size: 12px;
+    margin-left: 10px;
+    border-radius: 0;
+    height: 30px;
+    margin-bottom: 4px;
+    -webkit-appearance: none;
+    vertical-align: middle;
+    font-family: 'proxima_nova';
+}
+.ajout_lieu{
+    font-family: 'proxima_nova';
+    font-size: 12px;
+    background: transparent;
+    line-height: 1;
+    border: 0;
+    border-radius: 0;
+    height: 30px;
+    margin-bottom: 5px;
+    -webkit-appearance: none;
+    vertical-align: middle;
+}
+.ajout_date{
+    font-family: 'proxima_nova';
+    font-size: 12px;
+    background: transparent;
+    line-height: 1;
+    border: 0;
+    border-radius: 0;
+    height: 30px;
+    margin-bottom: 5px;
+    -webkit-appearance: none;
+    vertical-align: middle;
+}
 /**/
-
+.recente{
+    display: block;
+    padding-bottom: 100px;
+}
 .actu_recente {
     width: 100%;
     padding-bottom: 10px;
@@ -402,12 +430,12 @@ a {
     font-size: 12px;
     margin-top: 22px;
     margin-left: 30px;
+    padding-bottom: 10px;
 }
 
 .actu_recente .photo2 {
     margin: 0 auto;
     display: block;
-    padding-top: 17px;
 }
 
 .legende {
@@ -425,6 +453,9 @@ a {
 }
 .photo2{
     display: inline-block;
+    -moz-border-radius:7px;
+    -webkit-border-radius:7px;
+    border-radius:7px;
 }
 .commenter {
     display: inline-block;
@@ -452,16 +483,6 @@ a {
 
 /*AMIS*/
 
-/*.amis-fix{
-    width: 451px;
-    height: auto;
-    position: absolute;
-    right: 50px;
-    top: 74px;
-    position: fixed;
-}
-*/
-
 .amis {
     width: 490px;
     position: absolute;
@@ -470,6 +491,7 @@ a {
     top: 74px;
     overflow-y:scroll;
     position: fixed;
+    padding-bottom: 95px;
 }
 
 .amis::-webkit-scrollbar{
@@ -477,9 +499,9 @@ a {
 }
 
 
-.amis .commentaire {
+.commentaire {
     width: 451px;
-    height: 132px;
+    padding-bottom: 10px;
     background-color: #FCFCFC;
     border: 1px solid #ECECEC;
     margin-top: 30px;
@@ -487,9 +509,15 @@ a {
 }
 
 .commentaire .photo_ami {
-    float: left;
-    margin-top: 27px;
-    margin-left: 27px;
+    margin-top: 13px;
+    margin-left: 15px;
+}
+
+.photo_ami{
+    display: inline;
+    margin: 0 auto;
+    height: 100%;
+    width: auto;
 }
 
 .commentaire .ago {
@@ -502,28 +530,43 @@ a {
 }
 
 .commentaire h2 {
-    float: left;
     font-family: "proxima_nova_bold";
     font-size: 16px;
     color: #444444;
-    padding-top: 20px;
-    margin-left: 30px;
-    display: block;
 }
-
 .commentaire .place {
     color: #565656;
-    display: block;
     font-family: "proxima_nova";
     font-size: 12px;
-    margin-top: 5px;
-    margin-right: 20px;
-    clear: left;
-    position: relative;
-    left: 125px;
-    top: -55px;
+
+}
+.circular2{
+    width: 65px;
+    height: 65px;
+    border-radius: 150px;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+    background-repeat: no-repeat;
+    display: inline-block;
 }
 
+.circular{
+    width: 80px;
+    height: 80px;
+    border-radius: 150px;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
+.infos_ami{
+    width: 200px;
+    vertical-align: top;
+    margin-top: 25px;
+    margin-left: 26px;
+    display: inline-block;
+}
 .commentaire span {
     font-family: "proxima_nova_bold";
     color: #444444;
@@ -544,46 +587,95 @@ a {
     font-family: "proxima_nova";
     color: #444444;
     font-size: 12px;
-    position: relative;
-    left: 125px;
-    top: -45px;
+    width: 350px;
+    margin-left: 80px;
 }
 
+.time{
+    font-family: "proxima_nova";
+    color: #444444;
+    font-size: 12px;
+    width: 350px;
+    padding-top: 10px;
+}
+
+.onsaitpassionlemet{
+    display: none;
+}
 
 /**/
 
 .interaction {
-    position: relative;
-    left: 125px;
-    top: -35px;
-    vertical-align: middle;
+    margin-top: 10px;
 }
 .nb_likes {
     font-family: "proxima_nova";
     font-size: 10px;
     color: #444444;
     margin-left: 4px;
-    position: relative;
-    top: -2px;
 }
 .commenter {
-    display: inline;
     font-family: "proxima_nova";
     font-size: 10px;
     color: #444444;
-    margin-left: 18px;
+    margin-left: 15px;
 }
 
 .train_bleu {
-    margin-left: 10px;
-    margin-top: 15px;
     width: 13px;
+    vertical-align: middle;
+    margin-left: 50px;
 }
 
 .coeur2 {
     margin-left: 13px;
     width: 15px;
 
+}
+
+.ajout_com{
+    padding-top: 20px;
+    width: 100%;
+    margin: 0 auto;
+    display: none;
+}
+.autre_com{
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-bottom: 2px solid #ECECEC;
+}
+.description3{
+    width: 60%;
+    margin-top: 10px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #F0F0F0;
+    background-color: #FCFCFC;
+    outline: none;
+    resize: none;
+}
+.ajout_desc{
+    vertical-align: middle;
+    width: 75px;
+    height: 21px;
+    background-color: transparent;
+    border: 1px solid #43E6BC;
+    border-radius: 5px;
+    color: #43E6BC;
+    font-size: 12px;
+    outline: none;
+    cursor: pointer;
+    padding: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: 50px;
+}
+.ajout_desc:hover{
+    background-color: #43E6BC;
+    color: white;
 }
 
 
@@ -593,8 +685,19 @@ footer{
 }
 
 /*RESPONSIVE*/
-
+@media screen and (min-width: 769px) {
+    .recente{
+        display: block;
+        padding-bottom: 100px;
+    }
+    .amis{
+        display: block;
+    }
+}
 @media screen and (max-width: 768px) {
+    .profil_open{
+        width: 100%;
+    }
     .all{
         width: 640px;
         margin: 0 auto;
@@ -619,6 +722,8 @@ footer{
     }
     .amis{
         display: none;
+        position: static;
+        margin: 0 auto;
     }
     .logo {
         display: none;
@@ -650,17 +755,9 @@ footer{
     .partager{
         display: none;
     }
-    h2 hr{
-        display: inherit;
-    }
-    .moment{
-        width: 400px;
-        margin: 0 auto;
-        margin-top: 0px;
-        margin-bottom: 30px;
-    }
-    hr{
+    .trait{
         width: 200px;
+        margin: 0 auto;
     }
     footer{
         display: inherit;
@@ -677,10 +774,6 @@ footer{
         height: 100%;
         text-align: center;
         padding-top: 10px;
-
-    }
-    .acti:active{
-        background-color: rgba(0,0,0,0.2);
     }
     .actu{
         width: 33.3%;
@@ -688,9 +781,8 @@ footer{
         height: 100%;
         text-align: center;
         padding-top: 10px;
-
     }
-    .actu:active{
+    .actu2{
         background-color: rgba(0,0,0,0.2);
     }
     .part{
@@ -700,14 +792,10 @@ footer{
         text-align: center;
         padding-top: 10px;
     }
-    .part:active{
-        background-color: rgba(0, 0, 0, 0.2);
-    }
     .menu{
         font-family: "proxima_nova";
         font-size: 15px;
         font-weight: 600;
-        color: white;
     }
     .aime{
         display: none;
@@ -721,6 +809,51 @@ footer{
     .train{
         float: left;
         margin-right: 10px;
+    }
+
+
+    .partager{
+        width: 100%;
+        height: 350px;
+    }
+    .part2{
+        width: 60%;
+        margin: 0 auto;
+    }
+    .partager .photo_profil{
+        position: inherit;
+        display: block;
+        margin: 0 auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .partager .titre{
+        position: static;
+        width: 70%;
+        display: inherit;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+    .partager .description{
+        position: static;
+        width: 90%;
+        display: inherit;
+        margin: 0 auto;
+    }
+    .pictureLabel2{
+        display: block;
+        margin-top: 10px;
+        width: 110px;
+    }
+    .partager .btn_partager{
+        margin-left: inherit;
+        display: block;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+    .partager .photo {
+        margin-left: inherit;
+        margin: 0 auto;
     }
 }
 @media screen and (max-width: 635px) {
@@ -749,11 +882,43 @@ footer{
     }
     .moment{
         font-size: 14px;
-        width: 320px;
+        width: 350px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .moment2{
+        font-size: 14px;
+        width: 200px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .trait{
+        text-align: center;
     }
     hr{
         width: 100px;
     }
     .legende{
+    }
+}
+@media screen and (max-width: 485px) {
+    .amis{
+        width: 100%;
+    }
+    .commentaire{
+        width: 100%;
+        border-radius: inherit ;
+    }
+    .avis{
+        margin-left: 25px;
+        margin-top: 5px;
+    }
+    .infos_ami{
+        margin-left: 10px;
+    }
+    .interaction{
+        margin-left: 20px;
+    }
+    .commentaire .photo_ami{
     }
 }

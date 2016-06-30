@@ -66,8 +66,11 @@ class UserRepository
 )as countlike,
 r.id as repid,
 r.nom as repnom,
+r.image as repimg,
 description,
 station,
+plage_de,
+plage_a,
 user.nom,
 user.image,
 id_artiste
@@ -82,10 +85,12 @@ FROM
 
     public function follow_usr(array $data)
     {
-        $sql = "INSERT INTO `suivis_par` (`id_artiste`, `id_user`, `etat`) VALUES (:id_artiste, :id_user, 1)";
+        $sql = "INSERT INTO `suivis_par` (`id_artiste`, `id_user`, `etat`, `date`) VALUES (:id_artiste, :id_user, 1, :date_follow)";
+        $date =  date("d-m-Y");
         $stmt = $this->PDO->prepare($sql);
         $stmt->bindParam(':id_artiste', $data['id']);
         $stmt->bindParam(':id_user', $data['user_id']);
+        $stmt->bindParam(':date_follow', $date);
         $stmt->execute();
     }
     
@@ -129,6 +134,9 @@ FROM
 )as countlike,
 r.id as repid,
 r.nom as repnom,
+r.image as repimg,
+r.plage_de as plage_de,
+r.plage_a as plage_a,
 description,
 station,
 user.nom,
@@ -142,4 +150,16 @@ FROM
         $row = $stmt->fetchAll(\PDO::FETCH_OBJ);
         return $row;
     }
+
+    public function station($data)
+    {
+        $sql="SELECT est_sur.ligne as ligne, station.id, station.nom FROM est_sur INNER JOIN station WHERE est_sur.id_station = station.id && station.nom = :station";
+        $stmt = $this->PDO->prepare($sql);
+        $stmt->bindParam(':station', $data, \PDO::PARAM_INT);
+        $stmt->execute();
+        $row = $stmt->fetchAll(\PDO::FETCH_OBJ);
+        return $row;
+
+    }
+    
 }

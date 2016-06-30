@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost:3306
--- Généré le :  Mer 29 Juin 2016 à 10:16
+-- Généré le :  Jeu 30 Juin 2016 à 22:55
 -- Version du serveur :  5.5.42
 -- Version de PHP :  5.6.10
 
@@ -53,7 +53,10 @@ INSERT INTO `est_sur` (`id_station`, `ligne`) VALUES
 (3, 5),
 (3, 8),
 (3, 9),
-(3, 11);
+(3, 11),
+(4, 1),
+(4, 5),
+(4, 8);
 
 -- --------------------------------------------------------
 
@@ -66,7 +69,16 @@ CREATE TABLE `like_par` (
   `id_repr` int(120) NOT NULL,
   `id_user` int(120) NOT NULL,
   `etat` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=131 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=268 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Contenu de la table `like_par`
+--
+
+INSERT INTO `like_par` (`id`, `id_repr`, `id_user`, `etat`) VALUES
+(261, 46, 39, 1),
+(263, 46, 40, 1),
+(265, 47, 39, 1);
 
 -- --------------------------------------------------------
 
@@ -81,16 +93,18 @@ CREATE TABLE `representation` (
   `id_artiste` int(11) NOT NULL,
   `station` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `date` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `like_count` int(120) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `plage_de` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `plage_a` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(180) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Contenu de la table `representation`
 --
 
-INSERT INTO `representation` (`id`, `nom`, `description`, `id_artiste`, `station`, `date`, `like_count`) VALUES
-(32, 'test', 'test', 35, 'République', '20:28:13', 0),
-(33, 'Moi', 'Moi', 36, 'Bastille', '23:05:32', 0);
+INSERT INTO `representation` (`id`, `nom`, `description`, `id_artiste`, `station`, `date`, `plage_de`, `plage_a`, `image`) VALUES
+(46, 'Yeah!', 'Réservez vos places de théâtre en promotion sur la billetterie TickeTac. Achetez des places de concert et de spectacle à Paris à prix réduit.', 41, 'Trocadero', '19:27:43', 'De 8h', 'A 14h', '1467307663.jpg'),
+(47, 'Rock''nChill', 'Réservez vos places de théâtre en promotion sur la billetterie TickeTac. Achetez des places de concert et de spectacle à Paris à prix réduit.', 41, 'Ajouter un lieu (station)', '21:16:58', 'De 15h', 'A 20h', '1467314217.jpg');
 
 -- --------------------------------------------------------
 
@@ -121,15 +135,17 @@ CREATE TABLE `suivis_par` (
   `id` int(11) NOT NULL,
   `id_user` int(120) NOT NULL,
   `id_artiste` int(120) NOT NULL,
-  `etat` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `etat` int(11) NOT NULL,
+  `date` text COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Contenu de la table `suivis_par`
 --
 
-INSERT INTO `suivis_par` (`id`, `id_user`, `id_artiste`, `etat`) VALUES
-(19, 34, 35, 1);
+INSERT INTO `suivis_par` (`id`, `id_user`, `id_artiste`, `etat`, `date`) VALUES
+(69, 39, 41, 1, '30-06-2016'),
+(70, 40, 41, 1, '30-06-2016');
 
 -- --------------------------------------------------------
 
@@ -144,16 +160,16 @@ CREATE TABLE `user` (
   `hash` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `image` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `type` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Contenu de la table `user`
 --
 
 INSERT INTO `user` (`id`, `nom`, `email`, `hash`, `image`, `type`) VALUES
-(34, 'maxou', 'maxime.grec@gmail.com', 'aa02ba588f75a5846c32c0bf5ab53435743ba7ad8d999a4091e5a44fa514a253', '1467133720.jpg', 0),
-(35, 'Pelo', 'pelo@gmail.com', 'fded8bbc2bc7c4fe3d0ae33c7bd58c7a6a188022c9377ff5644bc750cf9120f8', '1467133912.jpg', 1),
-(36, 'PierreZbull-T', 'pierre@gmail.com', 'ca25ee28fc6819490cc6879f1e1471eaf491d1ed78357fcf2f8cc00029be80fc', '1467147901.jpg', 1);
+(39, 'Stéphane', 'steph@gmail.com', '060d796028d9accd0458390610d1062638b88dd2d1b3b9166f4388646140e8c4', '1467307472.png', 0),
+(40, 'Florian', 'florian@gmail.com', '44229e1088d7e0f1a58ea7d5a7654e59caa4b492c198952d4e9add8774a44576', '1467307535.jpg', 0),
+(41, 'Maxime', 'maxime.grec@gmail.com', 'aa02ba588f75a5846c32c0bf5ab53435743ba7ad8d999a4091e5a44fa514a253', '1467307609.jpg', 1);
 
 --
 -- Index pour les tables exportées
@@ -218,12 +234,12 @@ ALTER TABLE `commentaire`
 -- AUTO_INCREMENT pour la table `like_par`
 --
 ALTER TABLE `like_par`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=131;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=268;
 --
 -- AUTO_INCREMENT pour la table `representation`
 --
 ALTER TABLE `representation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=48;
 --
 -- AUTO_INCREMENT pour la table `station`
 --
@@ -233,12 +249,12 @@ ALTER TABLE `station`
 -- AUTO_INCREMENT pour la table `suivis_par`
 --
 ALTER TABLE `suivis_par`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=73;
 --
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=37;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=42;
 --
 -- Contraintes pour les tables exportées
 --

@@ -15,16 +15,17 @@
 
     <form action="index.php?a=artiste" method="post" enctype="multipart/form-data" id="form_left">
         <h3>Rejoignez SubSound !</h3>
-        <input class="inscrit" type="text" name="nom" placeholder="nom">
-        <input class="inscrit" type="text" name="email" placeholder="email">
-        <input class="inscrit" type="file" name="image">
-        <input class="inscrit" type="text" name="password" placeholder="password">
-        <input class="inscrit" type="text" name="password2" placeholder="password2">
-        <input type="submit" value="Je m'inscris">
+        <input class="inscrit" type="text" name="nom" placeholder="Nom">
+        <input class="inscrit" type="email" name="email" placeholder="Email">
+        <input class="inscrit" type="password" name="password" placeholder="Mot de passe">
+        <input class="inscrit" type="password" name="password2" placeholder="Confirmer le Mot de passe">
+        <input class="inscrit" id="file" type="file" name="image" >
+        <label class="pictureLabel" for="file">Ajouter une image</label>
+        <input type="submit" class="inscrit-submit" value="Je m'inscris">
     </form>
 
     <div class="top"></div>
-    <a href=""><img src="assets/img/logo.png" alt="" class="logo"></a>
+    <a href="index.php?"><img src="assets/img/logo.png" alt="" class="logo"></a>
     <div class="bottom"></div>
 
     <div class="right">
@@ -35,12 +36,13 @@
 
     <form action="index.php?a=user" method="post" enctype="multipart/form-data" id="form_right">
         <h3>Rejoignez SubSound !</h3>
-        <input class="inscrit" type="text" name="nom" placeholder="nom">
-        <input class="inscrit" type="text" name="email" placeholder="email">
-        <input class="inscrit" type="file" name="image" placeholder="email">
-        <input class="inscrit" type="text" name="password" placeholder="password">
-        <input class="inscrit" type="text" name="password2" placeholder="password2">
-        <input type="submit" value="Je m'inscris">
+        <input class="inscrit" type="text" name="nom" placeholder="Nom">
+        <input class="inscrit" type="email" name="email" placeholder="Email">
+        <input class="inscrit" type="password" name="password" placeholder="Mot de passe">
+        <input class="inscrit" type="password" name="password2" placeholder="Confirmer le Mot de passe">
+        <input class="inscrit" id="file2" type="file" name="image" >
+        <label class="pictureLabel" for="file2">Ajouter une image</label>
+        <input type="submit" class="inscrit-submit" value="Je m'inscris">
     </form>
 
 </div>

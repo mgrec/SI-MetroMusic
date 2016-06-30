@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/accueil_profil.css">
+    <script src="assets/js/jquery-2.2.3.js"></script>
     <title>SubSound</title>
 </head>
 
@@ -21,12 +22,12 @@
     <div class="profil_open">
         <a href="" class="modif_infos">Modifier mes infos</a>
         <img src="assets/img/arrow_left.png" alt="" class="arrow_left arrowl">
-        <div class="circular profil2" style="background: url(uploads/<?= $item1->image ?>) no-repeat center; width: 80px; height: 80px;"></div>
+        <div class="circular profil2" style="background: url(uploads/<?= $item1->image ?>) center;"></div>
         <h2><?= $item1->nom ?></h2>
         <?php endforeach; ?>
         <div class="menu">
             <ul>
-                <li><a href="">Suber</a></li>
+                <li><a href="">Artiste</a></li>
                 <hr>
                 <li><a href="">Abonnements</a></li>
                 <?php foreach ($infos2 as $item2): ?>
@@ -48,9 +49,9 @@
         <!--RECHERCHE-->
         <div class="barre">
             <div class="recherche">
-                <form action="index.php?a=search" method="POST">
-                    <input name="search" class="search" type="search" placeholder="Tapez votre recherche ">
-                    <button type="submit" class="loupe">
+                <form>
+                    <input name="search" id="valeur" class="search" type="search" placeholder="Rechercher un itinéraire ">
+                    <button type="button" class="loupe" onClick="srch();">
                         <img src="assets/img/loupe.png" alt="">
                     </button>
                 </form>
@@ -60,60 +61,24 @@
 
         <!--ACTUALITES-->
         <div class="actualites">
-            <div class="recente">
-                <h2 class="moment">En ce moment sur nos lignes de métro parisiennes
-                    <hr class="trait">
-                </h2>
-                <?php foreach ($data as $item): ?>
-                    <div class="actu_recente">
-                        <a class="suivre" href="index.php?a=follow&id=<?= $item->id_artiste ?>">Suivre</a>
-                        <div class="circular2 photo_profil"
-                             style="background: url(uploads/<?= $item->image ?>) center;"></div>
-                        <div class="infos">
-                            <h3><?= $item->repnom ?></h3>
-                            <p class="auteur">Par <span><?= $item->nom ?></span></p></div>
-                        <div class="infosplus"><p class="lieu">à <span><?= $item->station ?>,</span></p>
-                            <p class="horaire">Horaires : <span>de <?=$item->plage_de?> à <?=$item->plage_a?></span></p></div>
+            <h2 class="moment">Voici les différente ligne qui déservent : <?=$_GET['i']." "?><hr class="trait"> </h2>
+            <div class="actu_recente">
+            <?php foreach ($ligne as $itemligne): ?>
 
+                <p style="padding: 10px;"><img src="assets/img/ligne/ligne<?=$itemligne->ligne?>.png" alt=""> - Suivez toutes les infos de cette ligne sur Twitter :
+                    <a style="color: #80BFFF;" target="_blank" href="https://twitter.com/Ligne<?=$itemligne->ligne?>_RATP"> Infos</a></p>
 
-                        <p class="description"><?= $item->description ?></p>
+            <?php endforeach; ?>
 
-                        <img src="uploads/<?=$item->repimg?>" alt="" class="photo2">
-
-                        <div class="legende">
-                            <img src="assets/img/coeur.png" alt="" class="coeur">
-                            <div class="aime"><a href="index.php?a=like&id=<?= $item->repid ?>">Aimer la publication</a>
-                                -
-                            </div>
-                            <span>(<?= $item->countlike ?>)</span>
-                            <div class="aime"> mentions</div>
-
-                            <p class="commenter"><a class="com" href=""><span>Commenter</span></a> - (6) commentaires</p>
-                            <img src="assets/img/train_bleu.png" alt="" class="train">
-                            <div class="find"><a href="index.php?a=itineraire&i=<?=$item->station?>">Trouver un itinéraire</a></div>
-                            <div class="ajout_com">
-                                <p class="auteur">Par <span>TheMoon</span></p>
-                                <div class="autre_com">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                    Delectus fugiat aliquid, blanditiis? Consequatur, similique. Deserunt sed beatae et
-                                    aperiam. Temporibus numquam laboriosam perferendis nesciunt provident deserunt ipsa
-                                    commodi veniam soluta! Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                    Distinctio suscipit nihil ullam, quam doloribus, .
-                                </div>
-                                <div class="ton_com">
-                                    <textarea class="description3" class="description2"
-                                              placeholder="Commenter le partage" name="" id="" cols="30"
-                                              rows="10"></textarea>
-                                    <a href="" class="ajout_desc">Commenter</a>
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </div>
-                <?php endforeach; ?>
+            </div>
+            <div style="margin-top: 20px; font-family: 'proxima_nova';" class="retour">
+                <a  href="index.php?a=connexion">RETOUR</a>
             </div>
 
         </div>
+
+
+
         <!--FIN ACTUALITES-->
 
 
@@ -124,7 +89,7 @@
             </h2>
             <?php foreach ($follow as $item2): ?>
                 <div class="commentaire">
-                    <p class="ago">Poster à <?=$item2->date?></p>
+                    <p class="ago">Il y a 5 minutes</p>
                     <div class="circular2 photo_ami"
                          style="background: url(uploads/<?= $item2->image ?>) center;"></div>
                     <div class="infos_ami">
@@ -141,13 +106,12 @@
                 </div>
             <?php endforeach; ?>
         </div>
-
         <!--FIN AMIS-->
 
     </div>
 </div>
 <footer>
-    <script src="assets/js/jquery-2.2.3.js"></script>
+
     <script src="assets/js/index.js"></script>
     <script>
         $('.arrowr').click(function (event) {
@@ -155,12 +119,19 @@
             $('.profil_open').css('display', 'block');
             $('.profil_close').css('display', 'none');
         });
+
         $('.arrowl').click(function () {
             event.preventDefault();
             $('.profil_open').css('display', 'none');
             $('.profil_close').css('display', 'block');
         });
-        
+
+
+
+        function srch(){
+        location.href='index.php?a=itineraire&i='+$('#valeur').val();
+        }
+
     </script>
     <a class="menu" href="">
         <div class="acti"><span>Activités</span></div>
