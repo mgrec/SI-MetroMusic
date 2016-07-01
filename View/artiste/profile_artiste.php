@@ -19,10 +19,10 @@
     </div>
     <?php foreach ($infos as $item1): ?>
     <div class="profil_open">
-        <a href="" class="modif_infos">Modifier mes infos</a>
+        <a href="" class="modif_infos menu-link">Modifier mes infos</a>
         <img src="assets/img/arrow_left.png" alt="" class="arrow_left arrowl">
         <div class="circular profil2" style="background: url(uploads/<?= $item1->image ?>) no-repeat center; width: 80px; height: 80px;"></div>
-        <h2><?= $item1->nom?></h2>
+        <h2><?= htmlentities($item1->nom)?></h2>
         <?php endforeach; ?>
         <div class="menu">
             <ul>
@@ -30,13 +30,24 @@
                 <hr>
                 <li><a href="">Abonnés</a></li>
                 <?php foreach ($infos2 as $item2): ?>
-                    <span class="nb"><?=$item2->numb?></span>
+                    <span class="nb"><?=htmlentities($item2->numb)?></span>
                 <?php endforeach; ?>
                 <li><a href="">Plan métro</a></li>
                 <li><a href="">Lignes de métro</a></li>
                 <li><a href="">Trouver un itinéraire</a></li>
                 <li><a href="index.php?a=deconnexion">Déconnexion</a></li>
             </ul>
+        </div>
+        <div style="display: none;" class="menu menu-edit">
+            <form action="index.php?a=editartiste&id=<?=$_SESSION['artiste_id'];?>" method="post">
+                <ul>
+                    <li ><input name="email" style="margin-top: 28px" class="input-edit" placeholder="Votre email" type="email"></li>
+                    <li><input name="nom" class="input-edit" placeholder="Votre nom" type="text"></li>
+                    <li style="margin-bottom: 28px"><input name="password" class="input-edit" placeholder="mot de passe" type="password"></li>
+                    <li style="margin: inherit"><input name="password2" class="input-edit" placeholder="Resaisir mot de passe" type="password"></li>
+                </ul>
+                <button style="color: black;border: 1px solid black;padding-right: -2px;height: 30px;width: 90px;position: static;margin: 20px 100px;" class="suivre" type="submit">Modifier</button>
+            </form>
         </div>
 
     </div>
@@ -74,8 +85,10 @@
                     <option>Ajouter un lieu (station)</option>
                     <option>République</option>
                     <option>Bastille</option>
-                    <option>Strasbourg-Saint-Dens</option>
+                    <option>Strasbourg-Saint-Denis</option>
                     <option>Trocadero</option>
+                    <option>Chatêlet</option>
+                    <option>Saint-Lazare</option>
                 </select> /
                 <select class="ajout_date" name="plage_de" id="" placeholder="Ajouter une photo/vidéo">
                     <option>8h</option>
@@ -123,23 +136,22 @@
                     <div class="actu_recente">
                         <div class="circular2 photo_profil" style="background: url(uploads/<?=$item->image?>) center;"></div>
                         <div class="infos">
-                            <h3><?=$item->repnom?></h3>
-                            <p class="auteur">Par <span><?=$item->nom?></span></p>                </div>
-                        <div class="infosplus"><p class="lieu">à <span><?=$item->station?>,</span></p>
-                            <p class="horaire">Horaires : <span>de <?=$item->plage_de?> à <?=$item->plage_a?></span></p></div>
+                            <h3><?=htmlentities($item->repnom)?></h3>
+                            <p class="auteur">Par <span><?=htmlentities($item->nom)?></span></p>                </div>
+                        <div class="infosplus"><p class="lieu">à <span><?=htmlentities($item->station)?>,</span></p>
+                            <p class="horaire">Horaires : <span>de <?=htmlentities($item->plage_de)?> à <?=htmlentities($item->plage_a)?></span></p></div>
 
 
-                        <p class="description"><?=$item->description?></p>
+                        <p class="description"><?=htmlentities($item->description)?></p>
 
-                        <img src="uploads/<?=$item->repimg?>" alt="" class="photo2">
+                        <img src="uploads/<?=htmlentities($item->repimg)?>" alt="" class="photo2">
 
                         <div class="legende">
                             <img src="assets/img/coeur.png" alt="" class="coeur">
-                            <div class="aime"></div> <span>(<?=$item->countlike?>)</span><div class="aime"> mentions</div>
+                            <div class="aime"></div> <span>(<?=htmlentities($item->countlike)?>)</span><div class="aime"> mentions</div>
 
                             <p class="commenter">(6) commentaires</p>
-                            <img src="assets/img/train_bleu.png" alt="" class="train">
-                            <div class="find"><a href="">Trouver un itinéraire</a></div>
+
                         </div>
 
 
@@ -158,8 +170,8 @@
                 <div class="commentaire">
                     <div class="circular2 photo_ami" style="background: url(uploads/<?=$item2->image?>) center;"></div>
                     <div class="infos_ami">
-                        <h2><?=$item2->nom?></h2>
-                        <p class="time">Vous suit depuis le <?=$item2->date?></p>
+                        <h2><?=htmlentities($item2->nom)?></h2>
+                        <p class="time">Vous suit depuis le <?=htmlentities($item2->date)?></p>
                     <div class="interaction">
                     </div>
 
@@ -184,6 +196,11 @@
             event.preventDefault();
             $('.profil_open').css('display','none');
             $('.profil_close').css('display','block');
+        });
+        $('.menu-link').click(function () {
+            event.preventDefault();
+            $('.menu').css('display', 'none');
+            $('.menu-edit').css('display', 'block');
         });
     </script>
     <a class="menu" href=""><div class="acti"><span>Activités</span></div></a><a class="menu" href=""><div class="actu"><span>Actualités</span></div><a class="menu" href=""><div class="part"><span>Partager</span></div></a>

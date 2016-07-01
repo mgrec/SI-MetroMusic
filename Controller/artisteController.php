@@ -18,7 +18,7 @@ class ArtisteController
 
     public function __construct(\PDO $pdo)
     {
-        $this->repository = new artisteRepository($pdo);
+        $this->repository = new ArtisteRepository($pdo);
     }
 
     public function insertAction()
@@ -114,20 +114,38 @@ class ArtisteController
             $img = Image::make($_FILES['image']["tmp_name"]);
 
             $mime = $img->mime();
-            if ($mime == 'image/jpeg')
+            if ($mime == 'image/jpeg') {
                 $extension = '.jpg';
-            elseif ($mime == 'image/png')
+            } elseif ($mime == 'image/png') {
                 $extension = '.png';
-            elseif ($mime == 'image/gif')
+            } elseif ($mime == 'image/gif') {
                 $extension = '.gif';
-            else
+            } else {
                 $extension = '';
+            }
 
-            $filename  = time() . $extension;
-            $img->resize(584,328);
-            $img->save('uploads/'. $filename);
+            $filename = time() . $extension;
+            $img->resize(584, 328);
+            $img->save('uploads/' . $filename);
             $data['image'] = $filename;
             $this->repository->insertProj($data);
+            $this->show();
+        }
+    }
+
+    public function updateArtiste()
+    {
+        if (count($_POST) === 0) {
+            $this->show();
+        } elseif ($_POST['password'] != $_POST['password2']) {
+            echo 'Vos mot de passe ne correspondent pas';
+            $this->show();
+        } else {
+            $data = $_POST;
+            $hash = hash('sha256', $data['password'] . $data['email']);
+            $data['hash'] = $hash;
+            $data['id_artiste'] = $_SESSION['artiste_id'];
+            $this->repository->UpdateUser($data);
             $this->show();
         }
     }

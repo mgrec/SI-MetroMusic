@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style2.css">
     <title>SubSound</title>
 </head>
 <body>
+<img src="assets/img/croix.png" class="croix" alt="">
 <div class="content">
 
     <div class="left">
         <h2 class="title_left title">Je suis un artiste</h2>
-    </div>
+        <p class="text">Faire connaitre mes musique</p>
+
 
     <form action="index.php?a=artiste" method="post" enctype="multipart/form-data" id="form_left">
         <h3>Rejoignez SubSound !</h3>
@@ -23,16 +25,15 @@
         <label class="pictureLabel" for="file">Ajouter une image</label>
         <input type="submit" class="inscrit-submit" value="Je m'inscris">
     </form>
+    </div>
 
-    <div class="top"></div>
-    <a href="index.php?"><img src="assets/img/logo.png" alt="" class="logo"></a>
-    <div class="bottom"></div>
+
+    <div class="logo2"><div class="logo"></div><a href="index.php?"><img src="assets/img/logo.png" alt="" class="ssound" ></a></div>
 
     <div class="right">
         <h2 class="title_right title">Je suis un suber</h2>
-    </div>
+        <p class="text2">Decouvrir et suivre les musiques des artistes</p>
 
-    <a href=""></a>
 
     <form action="index.php?a=user" method="post" enctype="multipart/form-data" id="form_right">
         <h3>Rejoignez SubSound !</h3>
@@ -44,6 +45,7 @@
         <label class="pictureLabel" for="file2">Ajouter une image</label>
         <input type="submit" class="inscrit-submit" value="Je m'inscris">
     </form>
+    </div>
 
 </div>
 
@@ -63,39 +65,132 @@
 <script src="assets/js/jquery-2.2.3.js"></script>
 <script>
     $(document).ready(function () {
-        $('.left').click(function () {
-            $(this).toggleClass("left_open");
-            $('.right').toggleClass("right_close");
-            $('.logo').toggleClass("img_left");
-            $('.top').toggleClass("top_left");
-            $('.bottom').toggleClass("bottom_left");
-            $('#form_left').fadeToggle(500);
-            $('.title_right').fadeToggle();
+
+
+        $(document).ready(function () {
+            updateContainer();
+            $(window).resize(function() {
+                updateContainer();
+            });
         });
+        function updateContainer() {
+            var $containerHeight = $(window).width();
+            var load ;
+            if ($containerHeight > 860) {
 
 
-        $('.left_open').click(function () {
-            $(this).toggleClass("left");
-            $('.right_close').toggleClass('right');
-        });
 
 
-        $('.right').click(function () {
-            $(this).toggleClass("right_open");
-            $('.left').toggleClass("left_close");
-            $('.logo').toggleClass("img_right");
-            $('.top').toggleClass("top_right");
-            $('.bottom').toggleClass("bottom_right");
-            $('#form_right').fadeToggle(500);
-            $('.title_left').fadeToggle();
-        });
+                $('.left').click(function () {
+                    var left_limit  = $(window).width() / 5;
+                    var left = $('.left').width();
+                    if(left > left_limit){
+                        $(this).css("width", "80%");
+                        $('.right').css("width", "20%");
+                        $('.logo').css("left", "80%");
+                        $('.ssound').css("left", "80%");
+                        $('#form_left').fadeIn();
+                        $('#form_right').fadeOut();
+                        $('.title_right').fadeOut();
+                        $('.title_left').fadeIn();
+                        $('.text').fadeOut();
+                        $('.text2').fadeOut();
+                    }
+
+                    var left_open_limit  = $(window).width() / 5;
+                    if(left <= left_open_limit){
+                        $(this).css("width","50%");
+                        $('.right').css("width","50%");
+                        $('.logo').css("left", "50%");
+                        $('.ssound').css("left", "50%");
+                        $('#form_left').fadeOut();
+                        $('#form_right').fadeOut();
+                        $('.title_right').fadeIn();
+                        $('.title_left').fadeIn();
+                        $('.text').fadeIn();
+                        $('.text2').fadeIn();
+                    }
+
+                });
+
+                $('.right').click(function () {
+                    var right_limit  = $(window).width() / 5;
+                    var right = $('.right').width();
+                    if(right > right_limit){
+                        $(this).css("width", "80%");
+                        $('.left').css("width", "20%");
+                        $('.logo').css("left", "20%");
+                        $('.ssound').css("left", "20%");
+                        $('#form_left').fadeOut();
+                        $('#form_right').fadeIn();
+                        $('.title_right').fadeIn();
+                        $('.title_left').fadeOut();
+                        $('.text').fadeOut();
+                        $('.text2').fadeOut();
+                    }
+
+                    var right_open_limit  = $(window).width() / 5;
+                    if(right <= right_open_limit){
+                        $(this).css("width", "50%");
+                        $('.left').css("width", "50%");
+                        $('.logo').css("left", "50%");
+                        $('.ssound').css("left", "50%");
+                        $('#form_left').fadeOut();
+                        $('#form_right').fadeOut();
+                        $('.title_right').fadeIn();
+                        $('.title_left').fadeIn();
+                        $('.text').fadeIn();
+                        $('.text2').fadeIn();
+                    }
 
 
-        $('.right_open').click(function () {
-            $(this).toggleClass("right");
-            $('.left_close').toggleClass('left');
-        });
+                });
 
+            }
+            if ($containerHeight <= 860) {
+                $('.left').click(function () {
+
+                    $(this).css("height", "80vh");
+                    $('.right').css("height", "20vh");
+                    $('.logo').css("top", "80%");
+                    $('.ssound').css("top", "80%");
+                    $('#form_left').fadeIn();
+                    $('#form_right').fadeOut();
+                    $('.title_right').fadeOut();
+                    $('.title_left').fadeOut();
+                    $('.text').fadeOut();
+                    $('.text2').fadeOut();
+                });
+
+
+                $('.croix').click(function () {
+                    $('.left').css("height","50vh");
+                    $('.right').css("height","50vh");
+                    $('.logo').css("top", "50%");
+                    $('.ssound').css("top", "50%");
+                    $('#form_left').fadeOut();
+                    $('#form_right').fadeOut();
+                    $('.title_right').fadeIn();
+                    $('.title_left').fadeIn();
+                    $('.text').fadeIn();
+                    $('.text2').fadeIn();
+                });
+
+                $('.right').click(function () {
+
+                    $(this).css("height", "80vh");
+                    $('.left').css("height", "20vh");
+                    $('.logo').css("top", "20%");
+                    $('.ssound').css("top", "20%");
+                    $('#form_left').fadeOut();
+                    $('#form_right').fadeIn();
+                    $('.title_right').fadeOut();
+                    $('.title_left').fadeOut();
+                    $('.text').fadeOut();
+                    $('.text2').fadeOut();
+                });
+            }
+        }
 
     })
 </script>

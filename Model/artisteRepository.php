@@ -72,7 +72,7 @@ user.image,
 id_artiste
 FROM
   `representation` r
-  INNER JOIN user ON user.id = id_artiste';
+  INNER JOIN user ON user.id = id_artiste ORDER BY repid DESC';
         $stmt = $this->PDO->prepare($sql);
         $stmt->execute();
         $row = $stmt->fetchAll(\PDO::FETCH_OBJ);
@@ -107,5 +107,16 @@ FROM
         $stmt->execute();
         $row = $stmt->fetchAll(\PDO::FETCH_OBJ);
         return $row;
+    }
+    
+    public function UpdateUser(array $data)
+    {
+        $sql="UPDATE `user` SET `nom` = :nom,`email` = :email,`hash` = :hash WHERE `id` = :artiste_id";
+        $stmt = $this->PDO->prepare($sql);
+        $stmt->bindParam(':artiste_id', $data['id_artiste'], \PDO::PARAM_INT);
+        $stmt->bindParam(':nom', $data['nom'], \PDO::PARAM_STR);
+        $stmt->bindParam(':email', $data['email'], \PDO::PARAM_STR);
+        $stmt->bindParam(':hash', $data['hash'], \PDO::PARAM_STR);
+        $stmt->execute();
     }
 }

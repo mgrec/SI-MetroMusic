@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
     <title>Subway Sound</title>
     <!-- STYLES -->
     <link rel="stylesheet" href="assets/css/reset.css">

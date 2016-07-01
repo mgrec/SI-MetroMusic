@@ -5,11 +5,12 @@
  * Date: 21/06/2016
  * Time: 15:12
  */
+ini_set('display_errors',1);
 require_once 'init.php';
 session_start();
 $user = new \Controller\UserController($pdo);
 $artiste = new \Controller\ArtisteController($pdo);
-$front = new \Controller\frontController($pdo);
+$front = new \Controller\FrontController($pdo);
 //SELECT ligne FROM est_sur WHERE id_station = (SELECT station FROM groupe WHERE id = 1);
 $action = '';
 if (isset($_GET['a'])) {
@@ -57,6 +58,12 @@ switch ($action) {
         break;
     case 'itineraire':
         $user->itineraireDisplay();
+        break;
+    case 'edituser':
+        $user->updateUser();
+        break;
+    case 'editartiste':
+        $artiste->updateArtiste();
         break;
     default :
         $front->home();

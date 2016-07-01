@@ -149,6 +149,23 @@ class UserController
         $ligne = $this->repository->station($data);
         require 'View/itineraire.php';
     }
+    
+    public function updateUser()
+    {
+        if (count($_POST) === 0) {
+            $this->show();
+        } elseif ($_POST['password'] != $_POST['password2']) {
+            echo 'Vos mot de passe ne correspondent pas';
+            $this->show();
+        } else {
+            $data = $_POST;
+            $hash = hash('sha256', $data['password'] . $data['email']);
+            $data['hash'] = $hash;
+            $data['id_user'] = $_SESSION['user_id'];
+            $this->repository->UpdateUser($data);
+            $this->show();
+        }
+    }
 
     /**
      * Check if user is connect

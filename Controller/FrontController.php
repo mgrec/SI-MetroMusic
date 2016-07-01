@@ -20,7 +20,7 @@ class FrontController
     
     public function __construct(\PDO $pdo)
     {
-        $this->artiste = new ArtisteController($pdo);
+        $this->artiste = new artisteController($pdo);
         $this->user = new UserController($pdo);
         $this->repository = new FrontRepository($pdo);
     }

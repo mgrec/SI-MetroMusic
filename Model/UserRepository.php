@@ -76,7 +76,7 @@ user.image,
 id_artiste
 FROM
   `representation` r
-  INNER JOIN user ON user.id = id_artiste';
+  INNER JOIN user ON user.id = id_artiste ORDER BY repid DESC';
         $stmt = $this->PDO->prepare($sql);
         $stmt->execute();
         $row = $stmt->fetchAll(\PDO::FETCH_OBJ);
@@ -116,7 +116,7 @@ FROM
     
     public function GetEventFollow($data)
     {
-        $sql="SELECT * FROM representation INNER JOIN suivis_par ON suivis_par.id_artiste = representation.id_artiste && suivis_par.etat = 1 INNER JOIN user ON user.id = representation.id_artiste WHERE suivis_par.id_user = :id_user";
+        $sql="SELECT * FROM representation INNER JOIN suivis_par ON suivis_par.id_artiste = representation.id_artiste && suivis_par.etat = 1 INNER JOIN user ON user.id = representation.id_artiste WHERE suivis_par.id_user = :id_user ORDER BY representation.id DESC";
         $stmt = $this->PDO->prepare($sql);
         $stmt->bindParam(':id_user', $data, \PDO::PARAM_INT);
         $stmt->execute();
@@ -160,6 +160,17 @@ FROM
         $row = $stmt->fetchAll(\PDO::FETCH_OBJ);
         return $row;
 
+    }
+
+    public function UpdateUser(array $data)
+    {
+        $sql="UPDATE `user` SET `nom` = :nom,`email` = :email,`hash` = :hash WHERE `id` = :user_id";
+        $stmt = $this->PDO->prepare($sql);
+        $stmt->bindParam(':user_id', $data['id_user'], \PDO::PARAM_INT);
+        $stmt->bindParam(':nom', $data['nom'], \PDO::PARAM_STR);
+        $stmt->bindParam(':email', $data['email'], \PDO::PARAM_STR);
+        $stmt->bindParam(':hash', $data['hash'], \PDO::PARAM_STR);
+        $stmt->execute();
     }
     
 }
